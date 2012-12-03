@@ -1,0 +1,95 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
+@prefix doap: <http://usefulinc.com/ns/doap#>.
+@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://portalmod.com/plugins/tap/deesser>
+a lv2:Plugin, lv2:DynamicsPlugin;
+
+doap:name "TAP DeEsser";
+
+mod:label "TAP DeEsser";
+
+doap:developer [
+    foaf:name "Tom Szilagyi";
+    foaf:homepage <http://tap-plugins.sourceforge.net/>;
+    foaf:mbox <mailto:tsziagyi@users.sourceforge.net>;
+    ];
+
+doap:maintainer [
+    foaf:name "MOD Team";
+    foaf:homepage <http://portalmod.com>;
+    foaf:mbox <mailto:devel@portalmod.com>;
+    ];
+
+doap:license <http://usefulinc.com/doap/licenses/gpl>;
+lv2:minorVersion 0;
+lv2:microVersion 1;
+lv2:port
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 0;
+    lv2:symbol "ThresholdLevelDb";
+    lv2:name "Threshold Level [dB]";
+    lv2:default 0;
+    lv2:minimum -50;
+    lv2:maximum 10;
+    lv2:portProperty lv2:;
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 1;
+    lv2:symbol "FrequencyHz";
+    lv2:name "Frequency [Hz]";
+    lv2:default 5500;
+    lv2:minimum 2000;
+    lv2:maximum 16000;
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 2;
+    lv2:symbol "SidechainFilter";
+    lv2:name "Sidechain Filter";
+    lv2:default 0;
+    lv2:minimum 0;
+    lv2:maximum 1.01;
+    lv2:portProperty lv2:enumeration;
+    lv2:scalePoint [rdfs:label "Highpass"; rdf:value 0];
+    lv2:scalePoint [rdfs:label "Bandpass"; rdf:value 1.01];
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 3;
+    lv2:symbol "Monitor";
+    lv2:name "Monitor";
+    lv2:default 0;
+    lv2:minimum 0;
+    lv2:maximum 1.01;
+    lv2:portProperty lv2:enumeration;
+    lv2:scalePoint [rdfs:label "Audio"; rdf:value 0];
+    lv2:scalePoint [rdfs:label "Sidechain"; rdf:value 1.01];
+],
+[
+    a lv2:OutputPort, lv2:ControlPort;
+    lv2:index 4;
+    lv2:symbol "AttenuationDb";
+    lv2:name "Attenuation [dB]";
+    lv2:default 0;
+    lv2:minimum 0;
+    lv2:maximum 10;
+],
+[
+    a lv2:InputPort, lv2:AudioPort;
+    lv2:index 5;
+    lv2:symbol "Input";
+    lv2:name "Input";
+],
+[
+    a lv2:OutputPort, lv2:AudioPort;
+    lv2:index 6;
+    lv2:symbol "Output";
+    lv2:name "Output";
+].

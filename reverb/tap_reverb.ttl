@@ -1,0 +1,359 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
+@prefix doap: <http://usefulinc.com/ns/doap#>.
+@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix units: <http://lv2plug.in/ns/extension/units#> .
+
+
+<http://portalmod.com/plugins/tap/reverb>
+a lv2:Plugin, lv2:ReverbPlugin;
+
+doap:name "TAP Reverberator";
+
+doap:developer [
+    foaf:name "Tom Szilagyi";
+    foaf:homepage <http://tap-plugins.sourceforge.net/index.html>;
+    foaf:mbox <mailto:tszilagyi@users.sourceforge.net>;
+    ];
+
+doap:maintainer [
+    foaf:name "MOD Team";
+    foaf:homepage <http://portalmod.com>;
+    foaf:mbox <mailto:devel@portalmod.com>;
+    ];
+
+doap:license <http://usefulinc.com/doap/licenses/gpl>;
+
+mod:pedalModel "japanese";
+mod:pedalColor "cream";
+mod:brand "TAP";
+mod:pedalLabel "Reverberator";
+mod:smallLabel "Reverb";
+mod:bypassLedPosition "118-83";
+
+lv2:minorVersion 0;
+lv2:microVersion 3;
+lv2:port
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 0;
+    lv2:symbol "Decay";
+    lv2:name "Decay";
+    lv2:default 2800;
+    lv2:minimum 0;
+    lv2:maximum 10000;
+    units:unit units:ms ;
+    mod:iconLabel "Decay";
+    mod:pedalButton "1-1";
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 1;
+    lv2:symbol "Drylevel";
+    lv2:name "Dry Level";
+    lv2:default -4;
+    lv2:minimum -70;
+    lv2:maximum 10;
+    units:unit units:db ;
+    mod:iconLabel "Dry";
+    mod:pedalButton "1-3";
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 2;
+    lv2:symbol "Wetlevel";
+    lv2:name "Wet Level";
+    lv2:default -12;
+    lv2:minimum -70;
+    lv2:maximum 10;
+    units:unit units:db ;
+    mod:iconLabel "Wet";
+    mod:pedalButton "1-5";
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 3;
+    lv2:symbol "Combs_En";
+    lv2:name "Comb Filters";
+    lv2:default 1;
+    lv2:minimum 0;
+    lv2:maximum 1;
+    lv2:portProperty lv2:toggled;
+    lv2:scalePoint
+    [
+        rdfs:label "Off" ;
+        rdf:value 0.0
+    ],
+    [
+        rdfs:label "On" ;
+        rdf:value 1.0
+    ]
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 4;
+    lv2:symbol "Allps_En";
+    lv2:name "Allpass Filters";
+    lv2:default 1;
+    lv2:minimum 0;
+    lv2:maximum 1;
+    lv2:portProperty lv2:toggled;
+    lv2:scalePoint
+    [
+        rdfs:label "Off" ;
+        rdf:value 0.0
+    ],
+    [
+        rdfs:label "On" ;
+        rdf:value 1.0
+    ]
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 5;
+    lv2:symbol "Bandpass_En";
+    lv2:name "Bandpass Filter";
+    lv2:default 1;
+    lv2:minimum 0;
+    lv2:maximum 1;
+    lv2:portProperty lv2:toggled;
+    lv2:scalePoint
+    [
+        rdfs:label "Off" ;
+        rdf:value 0.0
+    ],
+    [
+        rdfs:label "On" ;
+        rdf:value 1.0
+    ]
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 6;
+    lv2:symbol "Stereo_Enh";
+    lv2:name "Enhanced Stereo";
+    lv2:default 1;
+    lv2:minimum 0;
+    lv2:maximum 1;
+    lv2:portProperty lv2:toggled;
+    lv2:scalePoint
+    [
+        rdfs:label "Off" ;
+        rdf:value 0.0
+    ],
+    [
+        rdfs:label "On" ;
+        rdf:value 1.0
+    ]
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 7;
+    lv2:symbol "Mode";
+    lv2:name "Reverb Type";
+    lv2:default 0;
+    lv2:minimum 0;
+    lv2:maximum 42;
+    lv2:portProperty lv2:enumeration;
+    lv2:scalePoint
+    [
+        rdfs:label "AfterBurn" ;
+        rdf:value 0.0
+    ],
+    [
+        rdfs:label "AfterBurn (Long)" ;
+        rdf:value 1.0
+    ],
+    [
+        rdfs:label "Ambience" ;
+        rdf:value 2.0
+    ],
+    [
+        rdfs:label "Ambience (Thick)" ;
+        rdf:value 3.0
+    ],
+    [
+        rdfs:label "Ambience (Thick) - HD" ;
+        rdf:value 4.0
+    ],
+    [
+        rdfs:label "Cathedral" ;
+        rdf:value 5.0
+    ],
+    [
+        rdfs:label "Cathedral - HD" ;
+        rdf:value 6.0
+    ],
+    [
+        rdfs:label "Drum Chamber" ;
+        rdf:value 7.0
+    ],
+    [
+        rdfs:label "Garage" ;
+        rdf:value 8.0
+    ],
+    [
+        rdfs:label "Garage (Bright)" ;
+        rdf:value 9.0
+    ],
+    [
+        rdfs:label "Gymnasium" ;
+        rdf:value 10.0
+    ],
+    [
+        rdfs:label "Gymnasium (Bright)" ;
+        rdf:value 11.0
+    ],
+    [
+        rdfs:label "Gymnasium (Bright) - HD" ;
+        rdf:value 12.0
+    ],
+    [
+        rdfs:label "Hall (Small)" ;
+        rdf:value 13.0
+    ],
+    [
+        rdfs:label "Hall (Medium)" ;
+        rdf:value 14.0
+    ],
+    [
+        rdfs:label "Hall (Large)" ;
+        rdf:value 15.0
+    ],
+    [
+        rdfs:label "Hall (Large) - HD" ;
+        rdf:value 16.0
+    ],
+    [
+        rdfs:label "Plate (Small)" ;
+        rdf:value 17.0
+    ],
+    [
+        rdfs:label "Plate (Medium)" ;
+        rdf:value 18.0
+    ],
+    [
+        rdfs:label "Plate (Large)" ;
+        rdf:value 19.0
+    ],
+    [
+        rdfs:label "Plate (Large) - HD" ;
+        rdf:value 20.0
+    ],
+    [
+        rdfs:label "Pulse Chamber" ;
+        rdf:value 21.0
+    ],
+    [
+        rdfs:label "Pulse Chamber (Reverse)" ;
+        rdf:value 22.0
+    ],
+    [
+        rdfs:label "Resonator (96 ms)" ;
+        rdf:value 23.0
+    ],
+    [
+        rdfs:label "Resonator (152 ms)" ;
+        rdf:value 24.0
+    ],
+    [
+        rdfs:label "Resonator (208 ms)" ;
+        rdf:value 25.0
+    ],
+    [
+        rdfs:label "Room (Small)" ;
+        rdf:value 26.0
+    ],
+    [
+        rdfs:label "Room (Medium)" ;
+        rdf:value 27.0
+    ],
+    [
+        rdfs:label "Room (Large)" ;
+        rdf:value 28.0
+    ],
+    [
+        rdfs:label "Room (Large) - HD" ;
+        rdf:value 29.0
+    ],
+    [
+        rdfs:label "Slap Chamber" ;
+        rdf:value 30.0
+    ],
+    [
+        rdfs:label "Slap Chamber - HD" ;
+        rdf:value 31.0
+    ],
+    [
+        rdfs:label "Slap Chamber (Bright)" ;
+        rdf:value 32.0
+    ],
+    [
+        rdfs:label "Slap Chamber (Bright) - HD" ;
+        rdf:value 33.0
+    ],
+    [
+        rdfs:label "Smooth Hall (Small)" ;
+        rdf:value 34.0
+    ],
+    [
+        rdfs:label "Smooth Hall (Medium)" ;
+        rdf:value 35.0
+    ],
+    [
+        rdfs:label "Smooth Hall (Large)" ;
+        rdf:value 36.0
+    ],
+    [
+        rdfs:label "Smooth Hall (Large) - HD" ;
+        rdf:value 37.0
+    ],
+    [
+        rdfs:label "Vocal Plate" ;
+        rdf:value 38.0
+    ],
+    [
+        rdfs:label "Vocal Plate - HD" ;
+        rdf:value 39.0
+    ],
+    [
+        rdfs:label "Warble Chamber" ;
+        rdf:value 40.0
+    ],
+    [
+        rdfs:label "Warehouse" ;
+        rdf:value 41.0
+    ],
+    [
+        rdfs:label "Warehouse - HD" ;
+        rdf:value 42.0
+    ]
+
+],
+[
+    a lv2:InputPort, lv2:AudioPort;
+    lv2:index 8;
+    lv2:symbol "InputL";
+    lv2:name "Input Left";
+],
+[
+    a lv2:OutputPort, lv2:AudioPort;
+    lv2:index 9;
+    lv2:symbol "OutputL";
+    lv2:name "Output Left";
+],
+[
+    a lv2:InputPort, lv2:AudioPort;
+    lv2:index 10;
+    lv2:symbol "InputR";
+    lv2:name "Input Right";
+],
+[
+    a lv2:OutputPort, lv2:AudioPort;
+    lv2:index 11;
+    lv2:symbol "OutputR";
+    lv2:name "Output Right";
+].

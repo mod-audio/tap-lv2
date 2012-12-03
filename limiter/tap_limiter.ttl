@@ -1,0 +1,69 @@
+@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
+@prefix doap: <http://usefulinc.com/ns/doap#>.
+@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+
+<http://portalmod.com/plugins/tap/limiter>
+a lv2:Plugin, lv2:LimiterPlugin;
+
+doap:name "TAP Scaling Limiter";
+
+mod:label "TAP Limiter";
+
+doap:developer [
+    foaf:name "Tom Szilagyi";
+    foaf:homepage <http://tap-plugins.sourceforge.net/>;
+    foaf:mbox <mailto:tsziagyi@users.sourceforge.net>;
+    ];
+
+doap:maintainer [
+    foaf:name "MOD Team";
+    foaf:homepage <http://portalmod.com>;
+    foaf:mbox <mailto:devel@portalmod.com>;
+    ];
+
+doap:license <http://usefulinc.com/doap/licenses/gpl>;
+lv2:minorVersion 0;
+lv2:microVersion 1;
+lv2:port
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 0;
+    lv2:symbol "LimitLevelDb";
+    lv2:name "Limit Level [dB]";
+    lv2:default 0;
+    lv2:minimum -30;
+    lv2:maximum 20;
+],
+[
+    a lv2:InputPort, lv2:ControlPort;
+    lv2:index 1;
+    lv2:symbol "OutputVolumeDb";
+    lv2:name "Output Volume [dB]";
+    lv2:default 0;
+    lv2:minimum -30;
+    lv2:maximum 20;
+],
+[
+    a lv2:OutputPort, lv2:ControlPort;
+    lv2:index 2;
+    lv2:symbol "Latency";
+    lv2:name "latency";
+    lv2:default 2500.1;
+    lv2:minimum 0;
+    lv2:maximum 2500.1;
+    lv2:portProperty lv2:reportsLatency;
+],
+[
+    a lv2:InputPort, lv2:AudioPort;
+    lv2:index 3;
+    lv2:symbol "Input";
+    lv2:name "Input";
+],
+[
+    a lv2:OutputPort, lv2:AudioPort;
+    lv2:index 4;
+    lv2:symbol "Output";
+    lv2:name "Output";
+].
