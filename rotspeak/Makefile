@@ -61,3 +61,4 @@ install:
 	mkdir -p $(INSTALLATION_PATH)
 	cp $(PLUGIN_SO) $(INSTALLATION_PATH)
 	cp $(SRC_DIR)/*.ttl $(INSTALLATION_PATH)
+	(test -d $(SRC_DIR)/modgui && cp -r $(SRC_DIR)/modgui/ $(INSTALLATION_PATH)) || true
