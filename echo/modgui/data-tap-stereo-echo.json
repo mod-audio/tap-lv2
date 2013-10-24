@@ -1,0 +1,36 @@
+{
+    "author": "TAP", 
+    "color": "white", 
+    "controls": [
+        {
+            "name": "L Delay", 
+            "symbol": "ldelay"
+        }, 
+        {
+            "name": "Left Feedback", 
+            "symbol": "lfeedback"
+        }, 
+        {
+            "name": "Right Haas Delay", 
+            "symbol": "rhaasdelay"
+        }, 
+        {
+            "name": "Right Haas Feedback", 
+            "symbol": "rhaasfeedback"
+        }, 
+        {
+            "name": "Left Echo Level", 
+            "symbol": "lecholevel"
+        }, 
+        {
+            "name": "Right Echo Level", 
+            "symbol": "recholevel"
+        }, 
+        {
+            "name": "Dry Level", 
+            "symbol": "dryLevel"
+        }
+    ], 
+    "knob": "cream", 
+    "label": "Stereo Echo"
+}

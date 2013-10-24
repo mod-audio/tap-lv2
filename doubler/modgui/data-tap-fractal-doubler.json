@@ -1,0 +1,40 @@
+{
+    "author": "TAP", 
+    "color": "darkblue", 
+    "controls": [
+        {
+            "name": "Time Tracking", 
+            "symbol": "TimeTracking"
+        }, 
+        {
+            "name": "Dry Left Position", 
+            "symbol": "DryLeftPosition"
+        }, 
+        {
+            "name": "Dry Right Position", 
+            "symbol": "DryRightPosition"
+        }, 
+        {
+            "name": "Dry Level [dB]", 
+            "symbol": "DryLevelDb"
+        }, 
+        {
+            "name": "Pitch Tracking", 
+            "symbol": "PitchTracking"
+        }, 
+        {
+            "name": "Wet Left Position", 
+            "symbol": "WeLeftPosition"
+        }, 
+        {
+            "name": "Wet Right Position", 
+            "symbol": "WetRightPosition"
+        }, 
+        {
+            "name": "Wet Level [dB]", 
+            "symbol": "WetLevelDb"
+        }
+    ], 
+    "knob": "cream", 
+    "label": "Fractal Doubler"
+}

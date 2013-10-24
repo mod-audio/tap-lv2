@@ -2,10 +2,10 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://portalmod.com/plugins/tap/doubler>
 a lv2:Plugin, lv2:SimulatorPlugin;
@@ -125,4 +125,12 @@ lv2:port
     lv2:index 11;
     lv2:symbol "Output_R";
     lv2:name "Output_R";
-].
+];
+    mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-fractal-doubler.html>;
+        mod:templateData <modgui/data-tap-fractal-doubler.json>;
+        mod:screenshot <modgui/screenshot-tap-fractal-doubler.png>;
+        mod:thumbnail <modgui/thumb-tap-fractal-doubler.png>;
+    ] .

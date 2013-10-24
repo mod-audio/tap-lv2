@@ -5,13 +5,13 @@
 @prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://portalmod.com/plugins/tap/deesser>
 a lv2:Plugin, lv2:DynamicsPlugin;
 
 doap:name "TAP DeEsser";
 
-mod:label "TAP DeEsser";
 
 doap:developer [
     foaf:name "Tom Szilagyi";
@@ -92,4 +92,12 @@ lv2:port
     lv2:index 6;
     lv2:symbol "Output";
     lv2:name "Output";
-].
+];
+   mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-deesser.html>;
+        mod:templateData <modgui/data-tap-deesser.json>;
+        mod:screenshot <modgui/screenshot-tap-deesser.png>;
+        mod:thumbnail <modgui/thumb-tap-deesser.png>;
+    ] .

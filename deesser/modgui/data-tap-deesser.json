@@ -1,0 +1,24 @@
+{
+    "author": "TAP", 
+    "color": "red", 
+    "controls": [
+        {
+            "name": "Threshold Level [dB]", 
+            "symbol": "ThresholdLevelDb"
+        }, 
+        {
+            "name": "Frequency [Hz]", 
+            "symbol": "FrequencyHz"
+        }, 
+        {
+            "name": "Sidechain Filter", 
+            "symbol": "SidechainFilter"
+        }, 
+        {
+            "name": "Monitor", 
+            "symbol": "Monitor"
+        }
+    ], 
+    "knob": "cream", 
+    "label": "DeEsser"
+}

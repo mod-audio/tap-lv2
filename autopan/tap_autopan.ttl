@@ -2,10 +2,10 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.	
 
 <http://portalmod.com/plugins/tap/autopan>
 a lv2:Plugin, lv2:ModulatorPlugin;
@@ -27,12 +27,6 @@ doap:maintainer [
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:optionalFeature lv2:hardRTCapable;
 
-mod:pedalModel "japanese";
-mod:pedalColor "blue";
-mod:brand "TAP";
-mod:pedalLabel "Autopanner";
-mod:smallLabel "Autopanner";
-mod:bypassLedPosition "118-83";
 
 lv2:minorVersion 0;
 lv2:microVersion 3;
@@ -46,8 +40,7 @@ lv2:port
     lv2:minimum 0;
     lv2:maximum 20;
     units:unit units:hz ;
-    mod:iconLabel "Frequency";
-    mod:pedalButton "1-1";
+
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
@@ -58,8 +51,7 @@ lv2:port
     lv2:minimum 0;
     lv2:maximum 100;
     units:unit units:pc ;
-    mod:iconLabel "Depth";
-    mod:pedalButton "1-3";
+
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
@@ -70,8 +62,7 @@ lv2:port
     lv2:minimum -70;
     lv2:maximum 20;
     units:unit units:db ;
-    mod:iconLabel "Gain";
-    mod:pedalButton "1-5";
+
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
@@ -96,4 +87,12 @@ lv2:port
     lv2:index 6;
     lv2:symbol "OutputR";
     lv2:name "Output R";
-].
+];
+mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-autopanner.html>;
+        mod:templateData <modgui/data-tap-autopanner.json>;
+        mod:screenshot <modgui/screenshot-tap-autopanner.png>;
+        mod:thumbnail <modgui/thumb-tap-autopanner.png>;
+    ] .

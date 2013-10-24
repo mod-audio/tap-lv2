@@ -1,0 +1,19 @@
+{
+    "author": "TAP", 
+    "color": "blue", 
+    "controls": [
+        {
+            "name": "Frequency", 
+            "symbol": "Frequency"
+        }, 
+        {
+            "name": "Depth", 
+            "symbol": "Depth"
+        }, 
+        {
+            "name": "Gain", 
+            "symbol": "Gain"
+        }
+    ], 
+    "label": "Auto Panner"
+}

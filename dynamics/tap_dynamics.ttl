@@ -2,16 +2,15 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://portalmod.com/plugins/tap/dynamics_m>
 a lv2:Plugin, lv2:DynamicsPlugin;
 
-doap:name "TAP Dynamics (M)";
+doap:name "TAP Mono Dynamics";
 
-mod:label "TAP Dyn (M)";
 
 doap:developer [
     foaf:name "Tom Szilagyi";
@@ -32,8 +31,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 0;
-    lv2:symbol "AttackMs";
-    lv2:name "Attack [ms]";
+    lv2:symbol "attack";
+    lv2:name "Attack";
     lv2:default 128;
     lv2:minimum 4;
     lv2:maximum 500;
@@ -41,8 +40,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 1;
-    lv2:symbol "ReleaseMs";
-    lv2:name "Release [ms]";
+    lv2:symbol "release";
+    lv2:name "Release";
     lv2:default 502;
     lv2:minimum 4;
     lv2:maximum 1000;
@@ -50,8 +49,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 2;
-    lv2:symbol "OffsetGainDb";
-    lv2:name "Offset Gain [dB]";
+    lv2:symbol "offsetgain";
+    lv2:name "Offset Gain";
     lv2:default 0;
     lv2:minimum -20;
     lv2:maximum 20;
@@ -59,8 +58,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 3;
-    lv2:symbol "MakeupGainDb";
-    lv2:name "Makeup Gain [dB]";
+    lv2:symbol "makeupgain";
+    lv2:name "Makeup Gain";
     lv2:default 0;
     lv2:minimum -20;
     lv2:maximum 20;
@@ -68,7 +67,7 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 4;
-    lv2:symbol "Function";
+    lv2:symbol "function";
     lv2:name "Function";
     lv2:default 0;
     lv2:minimum 0;
@@ -140,8 +139,8 @@ lv2:port
 [
     a lv2:OutputPort, lv2:ControlPort;
     lv2:index 5;
-    lv2:symbol "EnvelopeVolumeDb";
-    lv2:name "Envelope Volume [dB]";
+    lv2:symbol "envelopevolume";
+    lv2:name "Envelope Volume";
     lv2:default 0;
     lv2:minimum -60;
     lv2:maximum 20;
@@ -149,8 +148,8 @@ lv2:port
 [
     a lv2:OutputPort, lv2:ControlPort;
     lv2:index 6;
-    lv2:symbol "GainAdjustmentDb";
-    lv2:name "Gain Adjustment [dB]";
+    lv2:symbol "gainadjustment";
+    lv2:name "Gain Adjustment";
     lv2:default 0;
     lv2:minimum -60;
     lv2:maximum 20;
@@ -158,21 +157,29 @@ lv2:port
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 7;
-    lv2:symbol "Input";
+    lv2:symbol "input";
     lv2:name "Input";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 8;
-    lv2:symbol "Output";
+    lv2:symbol "output";
     lv2:name "Output";
-].
+];
+mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-dynamics-m.html>;
+        mod:templateData <modgui/data-tap-dynamics-m.json>;
+        mod:screenshot <modgui/screenshot-tap-dynamics-m.png>;
+        mod:thumbnail <modgui/thumb-tap-dynamics-m.png>;
+    ] .
 
 
 <http://portalmod.com/plugins/tap/dynamics_st>
 a lv2:Plugin, lv2:DynamicsPlugin;
 
-doap:name "TAP Dynamics (St)";
+doap:name "TAP Stereo Dynamics";
 
 mod:label "TAP Dyn (St)";
 
@@ -195,8 +202,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 0;
-    lv2:symbol "AttackMs";
-    lv2:name "Attack [ms]";
+    lv2:symbol "attack";
+    lv2:name "Attack";
     lv2:default 128;
     lv2:minimum 4;
     lv2:maximum 500;
@@ -204,8 +211,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 1;
-    lv2:symbol "ReleaseMs";
-    lv2:name "Release [ms]";
+    lv2:symbol "releaseM";
+    lv2:name "Release";
     lv2:default 502;
     lv2:minimum 4;
     lv2:maximum 1000;
@@ -213,8 +220,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 2;
-    lv2:symbol "OffsetGainDb";
-    lv2:name "Offset Gain [dB]";
+    lv2:symbol "offsetgain";
+    lv2:name "Offset Gain";
     lv2:default 0;
     lv2:minimum -20;
     lv2:maximum 20;
@@ -222,8 +229,8 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 3;
-    lv2:symbol "MakeupGainDb";
-    lv2:name "Makeup Gain [dB]";
+    lv2:symbol "makeupgain";
+    lv2:name "Makeup Gain";
     lv2:default 0;
     lv2:minimum -20;
     lv2:maximum 20;
@@ -231,7 +238,7 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 4;
-    lv2:symbol "StereoMode";
+    lv2:symbol "stereomode";
     lv2:name "Stereo Mode";
     lv2:default 0;
     lv2:minimum 0;
@@ -255,7 +262,7 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 5;
-    lv2:symbol "Function";
+    lv2:symbol "function";
     lv2:name "Function";
     lv2:default 0;
     lv2:minimum 0;
@@ -327,8 +334,8 @@ lv2:port
 [
     a lv2:OutputPort, lv2:ControlPort;
     lv2:index 6;
-    lv2:symbol "EnvelopeVolumeLDb";
-    lv2:name "Envelope Volume (L) [dB]";
+    lv2:symbol "lenvelopevolume";
+    lv2:name "Left Envelope Volume";
     lv2:default 0;
     lv2:minimum -60;
     lv2:maximum 20;
@@ -336,8 +343,8 @@ lv2:port
 [
     a lv2:OutputPort, lv2:ControlPort;
     lv2:index 7;
-    lv2:symbol "EnvelopeVolumeRDb";
-    lv2:name "Envelope Volume (R) [dB]";
+    lv2:symbol "renvelopevolume";
+    lv2:name "Right Envelope Volume";
     lv2:default 0;
     lv2:minimum -60;
     lv2:maximum 20;
@@ -345,8 +352,8 @@ lv2:port
 [
     a lv2:OutputPort, lv2:ControlPort;
     lv2:index 8;
-    lv2:symbol "GainAdjustmentLDb";
-    lv2:name "Gain Adjustment (L) [dB]";
+    lv2:symbol "lgainadjustment";
+    lv2:name "Left Gain Adjustment";
     lv2:default 0;
     lv2:minimum -60;
     lv2:maximum 20;
@@ -354,8 +361,8 @@ lv2:port
 [
     a lv2:OutputPort, lv2:ControlPort;
     lv2:index 9;
-    lv2:symbol "GainAdjustmentRDb";
-    lv2:name "Gain Adjustment (R) [dB]";
+    lv2:symbol "rgainadjustment";
+    lv2:name "Right Gain Adjustment";
     lv2:default 0;
     lv2:minimum -60;
     lv2:maximum 20;
@@ -363,24 +370,32 @@ lv2:port
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 10;
-    lv2:symbol "InputLeft";
+    lv2:symbol "inputleft";
     lv2:name "Input Left";
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 11;
-    lv2:symbol "InputRight";
+    lv2:symbol "inputright";
     lv2:name "Input Right";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 12;
-    lv2:symbol "OutputLeft";
+    lv2:symbol "outputleft";
     lv2:name "Output Left";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 13;
-    lv2:symbol "OutputRight";
+    lv2:symbol "outputright";
     lv2:name "Output Right";
-].
+];
+mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-stereo-dynamics.html>;
+        mod:templateData <modgui/data-tap-stereo-dynamics.json>;
+        mod:screenshot <modgui/screenshot-tap-stereo-dynamics.png>;
+        mod:thumbnail <modgui/thumb-tap-stereo-dynamics.png>;
+    ] .
