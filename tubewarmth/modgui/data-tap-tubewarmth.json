@@ -1,0 +1,15 @@
+{
+    "author": "TAP", 
+    "color": "brown", 
+    "controls": [
+        {
+            "name": "Drive", 
+            "symbol": "drive"
+        }, 
+        {
+            "name": "Tape--Tube Blend", 
+            "symbol": "blend"
+        }
+    ], 
+    "label": "Tubewarmth"
+}

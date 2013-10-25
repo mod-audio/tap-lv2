@@ -2,7 +2,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
 
 <http://portalmod.com/plugins/tap/reflector>
@@ -25,12 +25,7 @@ doap:maintainer [
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:optionalFeature lv2:hardRTCapable;
 
-mod:pedalModel "japanese";
-mod:pedalColor "white";
-mod:brand "TAP";
-mod:pedalLabel "Reflector";
-mod:smallLabel "Reflector";
-mod:bypassLedPosition "118-83";
+
 
 lv2:minorVersion 0;
 lv2:microVersion 3;
@@ -38,48 +33,51 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 0;
-    lv2:symbol "Fragment";
+    lv2:symbol "fragment";
     lv2:name "Fragment Length";
     lv2:default 1000;
-    lv2:minimum 20;
+    lv2:minimum 100;
     lv2:maximum 1600;
-    mod:iconLabel "Fragm. Lenght";
-    mod:pedalButton "1-0";
+
     units:unit units:ms ;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 1;
-    lv2:symbol "Dry";
+    lv2:symbol "dry";
     lv2:name "Dry Level";
     lv2:default 0;
     lv2:minimum -90;
     lv2:maximum 20;
-    mod:iconLabel "Dry";
-    mod:pedalButton "1-2";
     units:unit units:db ;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 2;
-    lv2:symbol "Wet";
-    lv2:name "Wet Level [dB]";
+    lv2:symbol "wet";
+    lv2:name "Wet Level";
     lv2:default 0;
     lv2:minimum -90;
     lv2:maximum 20;
-    mod:iconLabel "Wet";
-    mod:pedalButton "1-4";
     units:unit units:db ;
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 3;
-    lv2:symbol "Input";
+    lv2:symbol "input";
     lv2:name "Input";
 ],
 [
     a lv2:OutputPort,  lv2:AudioPort;
     lv2:index 4;
-    lv2:symbol "Output";
+    lv2:symbol "output";
     lv2:name "Output";
-].
+];
+mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-reflector.html>;
+        mod:templateData <modgui/data-tap-reflector.json>;
+        mod:screenshot <modgui/screenshot-tap-reflector.png>;
+        mod:thumbnail <modgui/thumb-tap-reflector.png>;
+    ] .

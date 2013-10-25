@@ -1,0 +1,24 @@
+{
+    "author": "TAP", 
+    "color": "purple", 
+    "controls": [
+        {
+            "name": "Horn Frequency", 
+            "symbol": "hornfreq"
+        }, 
+        {
+            "name": "Rotor Frequency", 
+            "symbol": "bassfreq"
+        }, 
+        {
+            "name": "Mic Distance", 
+            "symbol": "stwidht"
+        }, 
+        {
+            "name": "Rotor/Horn Mix", 
+            "symbol": "hrbal"
+        }
+    ], 
+    "knob": "cream", 
+    "label": "TAP Rotary Speaker"
+}

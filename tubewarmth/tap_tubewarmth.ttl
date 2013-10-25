@@ -2,11 +2,10 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
-
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://portalmod.com/plugins/tap/tubewarmth>
 a lv2:Plugin, lv2:SimulatorPlugin;
@@ -28,12 +27,7 @@ doap:maintainer [
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:optionalFeature lv2:hardRTCapable;
 
-mod:pedalModel "japanese";
-mod:pedalColor "brown";
-mod:brand "TAP";
-mod:pedalLabel "Tubewarmth";
-mod:smallLabel "Tubewarmth";
-mod:bypassLedPosition "118-83";
+
 
 lv2:minorVersion 0;
 lv2:microVersion 3;
@@ -41,34 +35,41 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 0;
-    lv2:symbol "Drive";
+    lv2:symbol "drive";
     lv2:name "Drive";
     lv2:default 5.0;
     lv2:minimum 0.1;
     lv2:maximum 10;
-    mod:iconLabel "Drive";
-    mod:pedalButton "1-2";
+
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 1;
-    lv2:symbol "Blend";
+    lv2:symbol "blend";
     lv2:name "Tape--Tube Blend";
     lv2:default 10;
     lv2:minimum -10;
     lv2:maximum 10;
-    mod:iconLabel "Tape/Tube mix";
-    mod:pedalButton "1-4";
+
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 2;
-    lv2:symbol "Input";
+    lv2:symbol "input";
     lv2:name "Input";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 3;
-    lv2:symbol "Output";
+    
+    lv2:symbol "output";
     lv2:name "Output";
-].
+];
+ mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-tubewarmth.html>;
+        mod:templateData <modgui/data-tap-tubewarmth.json>;
+        mod:screenshot <modgui/screenshot-tap-tubewarmth.png>;
+        mod:thumbnail <modgui/thumb-tap-tubewarmth.png>;
+    ] .

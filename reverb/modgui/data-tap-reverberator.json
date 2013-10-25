@@ -1,0 +1,23 @@
+{
+    "author": "TAP", 
+    "color": "white", 
+    "controls": [
+        {
+            "name": "Reverb Type", 
+            "symbol": "mode"
+        }, 
+        {
+            "name": "Decay", 
+            "symbol": "decay"
+        }, 
+        {
+            "name": "Wet Level", 
+            "symbol": "wetlevel"
+        }, 
+        {
+            "name": "Dry Level", 
+            "symbol": "drylevel"
+        }
+    ], 
+    "label": "Reverberator"
+}

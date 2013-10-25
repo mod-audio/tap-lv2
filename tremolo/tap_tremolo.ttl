@@ -2,10 +2,10 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extension/units#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://portalmod.com/plugins/tap/tremolo>
 a lv2:Plugin, lv2:ModulatorPlugin;
@@ -27,12 +27,6 @@ doap:maintainer [
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:optionalFeature lv2:hardRTCapable;
 
-mod:pedalModel "japanese";
-mod:pedalColor "purple";
-mod:brand "TAP";
-mod:pedalLabel "Tremolo";
-mod:smallLabel "Tremolo";
-mod:bypassLedPosition "118-83";
 
 lv2:minorVersion 0;
 lv2:microVersion 3;
@@ -40,48 +34,52 @@ lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 0;
-    lv2:symbol "Frequency";
+    lv2:symbol "frequency";
     lv2:name "Frequency";
     lv2:default 5;
     lv2:minimum 0;
     lv2:maximum 20;
     units:unit units:hz ;
-    mod:iconLabel "Frequency";
-    mod:pedalButton "1-0";
+    
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 1;
-    lv2:symbol "Depth";
+    lv2:symbol "depth";
     lv2:name "Depth";
     lv2:default 50;
     lv2:minimum 0;
     lv2:maximum 100;
     units:unit units:pc ;
-    mod:iconLabel "Depth";
-    mod:pedalButton "1-2";
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 2;
-    lv2:symbol "Gain";
+    lv2:symbol "gain";
     lv2:name "Gain";
     lv2:default 0;
     lv2:minimum -70;
     lv2:maximum 20;
     units:unit units:db ;
-    mod:iconLabel "Gain";
-    mod:pedalButton "1-4";
+
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 3;
-    lv2:symbol "Input_0";
+    lv2:symbol "input_0";
     lv2:name "Input_0";
 ],
 [
     a lv2:OutputPort,  lv2:AudioPort;
     lv2:index 4;
-    lv2:symbol "Output_0";
+    lv2:symbol "output_0";
     lv2:name "Output_0";
-].
+];
+mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-tremolo.html>;
+        mod:templateData <modgui/data-tap-tremolo.json>;
+        mod:screenshot <modgui/screenshot-tap-tremolo.png>;
+        mod:thumbnail <modgui/thumb-tap-tremolo.png>;
+    ] .
