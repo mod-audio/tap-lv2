@@ -35,8 +35,8 @@ mod:pedalLabel "Chorus/Flanger";
 mod:smallLabel "Chorus/Flang.";
 mod:bypassLedPosition "118-83";
 
-lv2:minorVersion 0;
-lv2:microVersion 3;
+lv2:minorVersion 7;
+lv2:microVersion 2;
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
