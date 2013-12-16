@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix mod: <http://portalmod.com/ns/modgui#>.
-
+@prefix time: <http://lv2plug.in/ns/ext/time/#>.
 
 <http://portalmod.com/plugins/tap/chorusflanger>
 a lv2:Plugin, lv2:ModulatorPlugin;
@@ -46,6 +46,7 @@ lv2:port
     lv2:default 1.75;
     lv2:minimum 0;
     lv2:maximum 5;
+    lv2:designation  time:beatsPerMinute;
     units:unit units:hz ;
     mod:iconLabel "Frequency";
     mod:pedalButton "0-0";
