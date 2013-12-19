@@ -131,6 +131,7 @@ instantiate_RotSpkr(const LV2_Descriptor * Descriptor, double SampleRate, const 
         flagcos++;
     }
 
+
     if ((ptr = malloc(sizeof(RotSpkr))) != NULL) {
         ((RotSpkr *)ptr)->sample_rate = SampleRate;
         ((RotSpkr *)ptr)->run_adding_gain = 1.0;
@@ -220,6 +221,7 @@ connect_port_RotSpkr(LV2_Handle Instance,
 
     RotSpkr * ptr;
 
+
     ptr = (RotSpkr *)Instance;
     switch (Port) {
     case HORNFREQ:
@@ -236,7 +238,6 @@ connect_port_RotSpkr(LV2_Handle Instance,
         break;
     case LATENCY:
         ptr->latency = (float *) DataLocation;
-                *(ptr->latency) = ptr->buflen_h_L / 2;  /* IS THIS LEGAL? */
         break;
     case INPUT_L:
         ptr->input_L = (float *) DataLocation;
@@ -258,6 +259,7 @@ connect_port_RotSpkr(LV2_Handle Instance,
 void
 run_RotSpkr(LV2_Handle Instance,
         uint32_t SampleCount) {
+
 
     RotSpkr * ptr = (RotSpkr *)Instance;
 

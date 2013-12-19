@@ -3,6 +3,7 @@
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix mod: <http://portalmod.com/ns/modgui#>.
+@prefix time: <http://lv2plug.in/ns/ext/time/#>.
 
 
 
@@ -39,6 +40,8 @@ lv2:port
     lv2:default 300;
     lv2:minimum 0;
     lv2:maximum 2000;
+    lv2:designation  time:beatsPerMinute;
+    units:unit units:ms ;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
@@ -57,6 +60,8 @@ lv2:port
     lv2:default 300;
     lv2:minimum 0;
     lv2:maximum 2000;
+    lv2:designation  time:beatsPerMinute;
+    units:unit units:ms ;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
