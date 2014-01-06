@@ -22,6 +22,7 @@
 #endif
 
 #include <stdint.h>
+#include <stdio.h>
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846264338327
@@ -58,6 +59,11 @@ float
 read_buffer(float * buffer, unsigned long buflen,
             unsigned long pos, unsigned long n) {
 
+		if( n > (buflen - 1) ){
+			n = buflen - 1;
+		}
+		// printf("N : %lu \n", n);
+		
         while (n + pos >= buflen)
                 n -= buflen;
         return buffer[n + pos];

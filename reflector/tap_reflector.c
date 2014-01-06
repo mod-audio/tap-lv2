@@ -47,7 +47,7 @@
 
 /* minimum & maximum fragment length [ms] */
 #define MIN_FRAGMENT_LEN 20
-#define MAX_FRAGMENT_LEN 1600
+#define MAX_FRAGMENT_LEN 2000
 
 /* in kHz */
 #define MAX_SAMPLE_RATE 192
@@ -97,6 +97,7 @@ instantiate_Reflector(const LV2_Descriptor * Descriptor, double SampleRate, cons
         LV2_Handle * ptr;
 
         int i;
+
 
         if(flagcos == 0)
         {
@@ -148,6 +149,7 @@ instantiate_Reflector(const LV2_Descriptor * Descriptor, double SampleRate, cons
 void
 activate_Reflector(LV2_Handle Instance) {
 
+
     Reflector * ptr = (Reflector *)Instance;
     unsigned long i;
 
@@ -181,6 +183,7 @@ connect_port_Reflector(LV2_Handle Instance,
                uint32_t Port,
                void * DataLocation) {
 
+
     Reflector * ptr = (Reflector *)Instance;
 
     switch (Port) {
@@ -207,6 +210,7 @@ connect_port_Reflector(LV2_Handle Instance,
 void
 run_Reflector(LV2_Handle Instance,
           uint32_t SampleCount) {
+
 
     Reflector * ptr = (Reflector *)Instance;
     float * input = ptr->input;
@@ -241,7 +245,9 @@ run_Reflector(LV2_Handle Instance,
     ptr->delay_buflen1 = ptr->buflen0 / 3;
     ptr->delay_buflen2 = 2 * ptr->buflen0 / 3;
 
+
     for (sample_index = 0; sample_index < sample_count; sample_index++) {
+
 
         in = *(input++);
         in1 = push_buffer(in, ptr->delay1, ptr->delay_buflen1, &(ptr->delay_pos1));
@@ -254,12 +260,21 @@ run_Reflector(LV2_Handle Instance,
         fragment_pos1 = (ptr->fragment_pos + ptr->buflen0 / 3) % ptr->buflen0;
         fragment_pos2 = (ptr->fragment_pos + 2 * ptr->buflen1 / 3) % ptr->buflen1;
 
+        // printf("RING 0: %f, BUFLEN: %lu, POS0:%lu, CONTA:%lu \n", *(ptr->ring0), ptr->buflen0, ptr->pos0, ptr->buflen0 - ptr->fragment_pos - 1);
+
         out_0 = read_buffer(ptr->ring0, ptr->buflen0, ptr->pos0,
                     ptr->buflen0 - ptr->fragment_pos - 1);
+
+
+        // printf("N PASSO\n");
+
         out_1 = read_buffer(ptr->ring1, ptr->buflen1, ptr->pos1,
                     ptr->buflen1 - fragment_pos1 - 1);
+
+
         out_2 = read_buffer(ptr->ring2, ptr->buflen2, ptr->pos2,
                     ptr->buflen2 - fragment_pos2 - 1);
+
 
         ptr->fragment_pos += 2;
         if (ptr->fragment_pos >= ptr->buflen0)
@@ -272,9 +287,11 @@ run_Reflector(LV2_Handle Instance,
         arg_2 = (float)fragment_pos2 / (float)ptr->buflen2 * COS_TABLE_SIZE;
         am_2 = 1.0f - cos_table[arg_2];
 
+
         *(output++) = drylevel * in + wetlevel *
             (am_0 * out_0 + am_1 * out_1 + am_2 * out_2);
     }
+
 }
 
 
@@ -368,6 +385,7 @@ run_Reflector(LV2_Handle Instance,
 /* Throw away a Reflector effect instance. */
 void
 cleanup_Reflector(LV2_Handle Instance) {
+
 
     Reflector * ptr = (Reflector *)Instance;
     free(ptr->ring0);
