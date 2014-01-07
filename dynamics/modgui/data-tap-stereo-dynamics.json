@@ -12,11 +12,11 @@
         }, 
         {
             "name": "Offset Gain", 
-            "symbol": "offsetgain"
+            "symbol": "offset"
         }, 
         {
             "name": "Makeup Gain", 
-            "symbol": "makeupgain"
+            "symbol": "makeup"
         }
     ], 
     "knob": "cream", 
