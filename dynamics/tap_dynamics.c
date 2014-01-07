@@ -428,11 +428,11 @@ connect_port_MonoDynamics(LV2_Handle Instance,
         break;
     case RMSENV_M:
         ptr->rmsenv_m = (float*) DataLocation;
-        *(ptr->rmsenv_m) = -60.0f;
+        // *(ptr->rmsenv_m) = -60.0f;
         break;
     case MODGAIN_M:
         ptr->modgain_m = (float*) DataLocation;
-        *(ptr->modgain_m) = 0.0f;
+        // *(ptr->modgain_m) = 0.0f;
         break;
     case MODE_M:
         ptr->mode_m = (float*) DataLocation;
@@ -469,19 +469,19 @@ connect_port_StereoDynamics(LV2_Handle Instance,
         break;
     case RMSENV_L:
         ptr->rmsenv_L = (float*) DataLocation;
-        *(ptr->rmsenv_L) = -60.0f;
+        // *(ptr->rmsenv_L) = -60.0f;
         break;
     case RMSENV_R:
         ptr->rmsenv_R = (float*) DataLocation;
-        *(ptr->rmsenv_R) = -60.0f;
+        // *(ptr->rmsenv_R) = -60.0f;
         break;
     case MODGAIN_L:
         ptr->modgain_L = (float*) DataLocation;
-        *(ptr->modgain_L) = 0.0f;
+        // *(ptr->modgain_L) = 0.0f;
         break;
     case MODGAIN_R:
         ptr->modgain_R = (float*) DataLocation;
-        *(ptr->modgain_R) = 0.0f;
+        // *(ptr->modgain_R) = 0.0f;
         break;
     case STEREO:
         ptr->stereo = (float*) DataLocation;
