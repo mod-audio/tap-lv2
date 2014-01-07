@@ -134,7 +134,7 @@ connect_port_Limiter(LV2_Handle Instance,
 		break;
 	case LATENCY:
 		ptr->latency = (float*) DataLocation;
-		*(ptr->latency) = ptr->buflen;  /* IS THIS LEGAL? */
+		// *(ptr->latency) = ptr->buflen;  /* IS THIS LEGAL? */
 		break;
 	case INPUT:
 		ptr->input = (float*) DataLocation;
