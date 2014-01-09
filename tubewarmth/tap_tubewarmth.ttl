@@ -31,6 +31,13 @@ lv2:optionalFeature lv2:hardRTCapable;
 
 lv2:minorVersion 7;
 lv2:microVersion 2;
+
+rdfs:comment """
+TAP TubeWarmth adds the character of vacuum tube amplification to your audio tracks by emulating the sonically desirable nonlinear characteristics of triodes. In addition, this plugin also supports emulating analog tape saturation.
+
+source: http://tap-plugins.sourceforge.net/ladspa/tubewarmth.html
+""";
+
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;

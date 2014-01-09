@@ -28,6 +28,13 @@ doap:maintainer [
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:minorVersion 7;
 lv2:microVersion 2;
+
+rdfs:comment """
+TAP DeEsser is a plugin for attenuating higher pitched frequencies in vocals such as those found in 'ess', 'shh' and 'chh' sounds. Almost any vocal recording will contain 'ess' sounds, whether a strong vocal delivery, from bad recording, speech impediments or simply many 'ess' words spoken together. Wind instruments and other musical instruments can also create shrill high-pitched noises. Audio engineers need to control these harsh 'ess' sounds in most recordings.
+
+source: http://tap-plugins.sourceforge.net/ladspa/deesser.html
+""";
+
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;

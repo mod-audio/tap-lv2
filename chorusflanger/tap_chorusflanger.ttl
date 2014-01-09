@@ -37,6 +37,13 @@ mod:bypassLedPosition "118-83";
 
 lv2:minorVersion 7;
 lv2:microVersion 2;
+
+rdfs:comment """
+This plugin is an implementation capable of creating traditional Chorus and Flanger effects, spiced up a bit to make use of stereo processing. It sounds best on guitar and synth tracks.
+
+source: http://tap-plugins.sourceforge.net/ladspa/chorusflanger.html
+""";
+
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;

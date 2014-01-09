@@ -5,13 +5,11 @@
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 @prefix time: <http://lv2plug.in/ns/ext/time/#>.
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
-
-
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 
 <http://portalmod.com/plugins/tap/echo>
-
-	a lv2:Plugin, lv2:DelayPlugin;
+    a lv2:Plugin, lv2:DelayPlugin;
 
 doap:name "TAP Stereo Echo";
 
@@ -32,6 +30,13 @@ doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:optionalFeature lv2:hardRTCapable;
 lv2:minorVersion 7;
 lv2:microVersion 2;
+
+rdfs:comment """
+This plugin supports conventional mono and stereo delays, ping-pong delays and the Haas effect (also known as Cross Delay Stereo). A relatively simple yet quite effective plugin.
+
+source: http://tap-plugins.sourceforge.net/ladspa/echo.html
+""";
+
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;

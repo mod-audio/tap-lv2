@@ -3,6 +3,7 @@
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <http://portalmod.com/plugins/tap/eq>
 a lv2:Plugin, lv2:EQPlugin;
@@ -26,6 +27,13 @@ doap:maintainer [
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:minorVersion 7;
 lv2:microVersion 2;
+
+rdfs:comment """
+This plugin is an 8-band equalizer with adjustable band center frequencies. It allows you to make precise adjustments to the tonal coloration of your tracks. The design and code of this plugin is based on that of the DJ EQ plugin by Steve Harris, which can be downloaded (among lots of other useful plugins) from http://plugin.org.uk.
+
+source: http://tap-plugins.sourceforge.net/ladspa/eq.html
+""";
+
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;

@@ -3,6 +3,7 @@
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <http://portalmod.com/plugins/tap/pitch>
 a lv2:Plugin, lv2:SpectralPlugin, lv2:PitchPlugin;
@@ -27,6 +28,13 @@ doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:optionalFeature lv2:hardRTCapable;
 lv2:minorVersion 7;
 lv2:microVersion 2;
+
+rdfs:comment """
+This plugin gives you the opportunity to change the pitch of individual tracks or full mixes, in the range of plus/minus one octave. Audio length (tempo) is not affected by this plugin, since audio is completely resampled. Besides being a special effect for creating foxy guitar tracks, it may come handy if your (otherwise very attractive) singer or chorus-girl was a bit indisposed at the time of recording: with the power of Ardour automation, you are given a chance to correct smaller pitch errors.
+
+source: http://tap-plugins.sourceforge.net/ladspa/pitch.html
+""";
+
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;

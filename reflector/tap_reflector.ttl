@@ -5,6 +5,7 @@
 @prefix mod: <http://portalmod.com/ns/modgui#>.
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
 @prefix time: <http://lv2plug.in/ns/ext/time/#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 <http://portalmod.com/plugins/tap/reflector>
 a lv2:Plugin, lv2:DelayPlugin;
@@ -30,6 +31,13 @@ lv2:optionalFeature lv2:hardRTCapable;
 
 lv2:minorVersion 7;
 lv2:microVersion 2;
+
+rdfs:comment """
+This plugin creates a psychedelic reverse audio effect. Overlapping time intervals of incoming samples are treated as blocks called 'fragments'. Each fragment is reversed in time, and faded in and out while played back to the output, hence creating a nearly constant signal level with the mixture resembling a normal reverse-played track -- with the difference that the audio actually progresses forward, only pieces of it are reversed.
+
+source: http://tap-plugins.sourceforge.net/ladspa/reflector.html
+""";
+
 lv2:port
 [
     a lv2:InputPort, lv2:ControlPort;
