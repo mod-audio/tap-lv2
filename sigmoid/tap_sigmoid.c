@@ -90,11 +90,11 @@ connect_port_Sigmoid(LV2_Handle Instance,
     switch (Port) {
     case PREGAIN:
         ptr->pregain = (float *) DataLocation;
-        ptr->pregain_i = db2lin(LIMIT(value,-90.0f,20.0f));
+        // ptr->pregain_i = db2lin(LIMIT(value,-90.0f,20.0f));
         break;
     case POSTGAIN:
         ptr->postgain = (float *) DataLocation;
-        ptr->postgain_i = db2lin(LIMIT(value,-90.0f,20.0f));
+        // ptr->postgain_i = db2lin(LIMIT(value,-90.0f,20.0f));
         break;
     case INPUT:
         ptr->input = (float *) DataLocation;

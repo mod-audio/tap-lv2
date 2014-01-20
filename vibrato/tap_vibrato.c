@@ -157,7 +157,7 @@ connect_port_Vibrato(LV2_Handle Instance,
         break;
     case LATENCY:
         ptr->latency = (float *) DataLocation;
-        *(ptr->latency) = ptr->buflen / 2;  /* IS THIS LEGAL? */
+        // *(ptr->latency) = ptr->buflen / 2;  /* IS THIS LEGAL? */
         break;
     case INPUT:
         ptr->input = (float *) DataLocation;

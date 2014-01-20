@@ -190,7 +190,7 @@ connect_port_DeEsser(LV2_Handle Instance,
 		break;
 	case ATTENUAT:
 		ptr->attenuat = (float*) DataLocation;
-		*(ptr->attenuat) = 0.0f;
+		// *(ptr->attenuat) = 0.0f;
 		break;
 	case INPUT:
 		ptr->input = (float*) DataLocation;
