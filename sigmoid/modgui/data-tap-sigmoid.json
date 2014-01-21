@@ -1,0 +1,15 @@
+{
+    "author": "TAP", 
+    "color": "gray", 
+    "controls": [
+        {
+            "name": "Pregain", 
+            "symbol": "Pregain"
+        }, 
+        {
+            "name": "Postgain", 
+            "symbol": "Postgain"
+        }
+    ], 
+    "label": "Sigmoid Booster"
+}

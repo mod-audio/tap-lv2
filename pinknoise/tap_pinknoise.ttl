@@ -2,7 +2,7 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix units: <http://lv2plug.in/ns/extensions/units#> .
@@ -11,8 +11,6 @@
 a lv2:Plugin, lv2:GeneratorPlugin;
 
 doap:name "TAP Pink/Fractal Noise";
-
-mod:label "TAP Pink Noise";
 
 doap:developer [
     foaf:name "Tom Szilagyi";
@@ -79,4 +77,12 @@ lv2:port
     lv2:index 4;
     lv2:symbol "output";
     lv2:name "Output";
-].
+];
+mod:gui [
+        a mod:Gui;
+        mod:resourcesDirectory <modgui>;
+        mod:iconTemplate <modgui/icon-tap-pinknoise.html>;
+        mod:templateData <modgui/data-tap-pinknoise.json>;
+        mod:screenshot <modgui/screenshot-tap-pinknoise.png>;
+        mod:thumbnail <modgui/thumb-tap-pinknoise.png>;
+    ] .

@@ -11,8 +11,6 @@ a lv2:Plugin, lv2:ModulatorPlugin;
 
 doap:name "TAP Vibrato";
 
-
-
 doap:developer [
     foaf:name "Tom Szilagyi";
     foaf:homepage <http://tap-plugins.sourceforge.net/index.html>;
