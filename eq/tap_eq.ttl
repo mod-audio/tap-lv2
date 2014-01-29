@@ -4,6 +4,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix mod: <http://portalmod.com/ns/modgui#>.
 
 <http://portalmod.com/plugins/tap/eq>
 a lv2:Plugin, lv2:EQPlugin;
@@ -190,4 +191,12 @@ lv2:port
     lv2:index 17;
     lv2:symbol "Output";
     lv2:name "Output";
-].
+];
+mod:gui [
+    a mod:Gui;
+    mod:resourcesDirectory <modgui>;
+    mod:iconTemplate <modgui/icon-tap-equalizer.html>;
+    mod:templateData <modgui/data-tap-equalizer.json>;
+    mod:screenshot <modgui/screenshot-tap-equalizer.png>;
+    mod:thumbnail <modgui/thumb-tap-equalizer.png>;
+] .
