@@ -269,6 +269,7 @@ mod:gui [
     a mod:Gui;
     mod:resourcesDirectory <modgui>;
     mod:iconTemplate <modgui/icon-tap-equalizerbw.html>;
+    mod:stylesheet <modgui/tap-equalizerbw.css>;
     mod:templateData <modgui/data-tap-equalizerbw.json>;
     mod:screenshot <modgui/screenshot-tap-equalizerbw.png>;
     mod:thumbnail <modgui/thumb-tap-equalizerbw.png>;
