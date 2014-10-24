@@ -3,11 +3,10 @@ language:
 compiler:
     - gcc
 before_script:
-    - sudo apt-get update -qq
-    - sudo apt-get install -y lv2core liblilv-dev lilv-utils
+    - bash .create_lv2_env.sh
     - git clone https://github.com/portalmod/lv2bm
-    - cd lv2bm && make && make install
+    - cd lv2bm && make && sudo make PREFIX=/usr install && cd ..
 script:
     - make
     - INSTALL_PATH=~/.lv2 make install
-    - lv2bm --full-test `lv2ls | grep tap`
+    - lv2bm `lv2ls | grep tap`
