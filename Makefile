@@ -44,7 +44,6 @@ install:
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C tremolo
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C tubewarmth
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C vibrato
-	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C modguis
 
 clean:
 	$(MAKE) clean -C autopan
