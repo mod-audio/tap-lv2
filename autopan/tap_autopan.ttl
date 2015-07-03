@@ -1,12 +1,9 @@
-@prefix lv2:  <http://lv2plug.in/ns/lv2core#>.
-@prefix doap: <http://usefulinc.com/ns/doap#>.
-@prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
-@prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix units: <http://lv2plug.in/ns/extensions/units#> .
-@prefix mod: <http://portalmod.com/ns/modgui#>.	
-@prefix time: <http://lv2plug.in/ns/ext/time/#>.
+@prefix doap:  <http://usefulinc.com/ns/doap#>.
+@prefix foaf:  <http://xmlns.com/foaf/0.1/>.
+@prefix lv2:   <http://lv2plug.in/ns/lv2core#>.
+@prefix mod:   <http://moddevices.com/ns/mod#>.
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix units: <http://lv2plug.in/ns/extensions/units#>.
 
 <http://portalmod.com/plugins/tap/autopan>
 a lv2:Plugin, lv2:SpatialPlugin;
@@ -17,25 +14,27 @@ doap:developer [
     foaf:name "Tom Szilagyi";
     foaf:homepage <http://tap-plugins.sourceforge.net/>;
     foaf:mbox <mailto:tsziagyi@users.sourceforge.net>;
-    ];
+];
 
 doap:maintainer [
     foaf:name "MOD Team";
     foaf:homepage <http://portalmod.com>;
-    foaf:mbox <devel@portalmod.com>;
-    ];
+    foaf:mbox <mailto:devel@portalmod.com>;
+];
+
+mod:brand "TAP";
+mod:label "Auto Panner";
 
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
+doap:wiki <http://tap-plugins.sourceforge.net/ladspa/autopan.html>;
+
 lv2:optionalFeature lv2:hardRTCapable;
-
-
 lv2:minorVersion 7;
 lv2:microVersion 2;
 
 rdfs:comment """
-The AutoPanner is a very well-known effect; its hardware incarnation originates in the age of voltage controlled synthesizers. Its main use is to liven up synth tracks in the mix.
-
-source: http://tap-plugins.sourceforge.net/ladspa/autopan.html
+The AutoPanner is a very well-known effect; its hardware incarnation originates in the age of voltage controlled synthesizers.
+Its main use is to liven up synth tracks in the mix.
 """;
 
 lv2:port
@@ -44,64 +43,59 @@ lv2:port
     lv2:index 0;
     lv2:symbol "Frequency";
     lv2:name "Frequency";
-    lv2:default 3;
-    lv2:minimum 0;
-    lv2:maximum 20;
-    lv2:designation  time:beatsPerMinute;
-    units:unit units:hz ;
-
+    lv2:shortname "Frequency";
+    lv2:default 3.0;
+    lv2:minimum 0.0;
+    lv2:maximum 20.0;
+    units:unit units:hz;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 1;
     lv2:symbol "Depth";
     lv2:name "Depth";
-    lv2:default 80;
-    lv2:minimum 0;
-    lv2:maximum 100;
-    units:unit units:pc ;
-
+    lv2:shortname "Depth";
+    lv2:default 80.0;
+    lv2:minimum 0.0;
+    lv2:maximum 100.0;
+    units:unit units:pc;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 2;
     lv2:symbol "Gain";
     lv2:name "Gain";
-    lv2:default 0;
-    lv2:minimum -70;
-    lv2:maximum 20;
-    units:unit units:db ;
-
+    lv2:shortname "Gain";
+    lv2:default 0.0;
+    lv2:minimum -70.0;
+    lv2:maximum 20.0;
+    units:unit units:db;
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 3;
     lv2:symbol "InputL";
     lv2:name "Input L";
+    lv2:shortname "Input L";
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 4;
     lv2:symbol "InputR";
     lv2:name "Input R";
+    lv2:shortname "Input R";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 5;
     lv2:symbol "OutputL";
     lv2:name "Output L";
+    lv2:shortname "Output L";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 6;
     lv2:symbol "OutputR";
     lv2:name "Output R";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-autopanner.html>;
-        mod:templateData <modgui/data-tap-autopanner.json>;
-        mod:screenshot <modgui/screenshot-tap-autopanner.png>;
-        mod:thumbnail <modgui/thumb-tap-autopanner.png>;
-    ] .
+    lv2:shortname "Output R";
+].
