@@ -142,6 +142,8 @@ static
 void
 cleanup_eq(LV2_Handle instance) {
 
+	eq *ptr = (eq *)instance;
+	free(ptr->filters);
 	free(instance);
 }
 
