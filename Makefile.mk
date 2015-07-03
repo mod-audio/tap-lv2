@@ -3,7 +3,7 @@
 CC ?= gcc
 
 # flags
-CFLAGS += -O3 -funroll-loops -ffast-math -fomit-frame-pointer -fstrength-reduce -Wall -fPIC -DPIC -I../utils
+CFLAGS += -O3 -funroll-loops -ffast-math -fomit-frame-pointer -fstrength-reduce -Wall -Werror -fPIC -DPIC -I../utils
 LDFLAGS += -shared -Wl,-O1 -Wl,--as-needed -Wl,--no-undefined -Wl,--strip-all -lm -lrt
 
 ifneq ($(NOOPT),true)
@@ -30,7 +30,9 @@ INSTALLATION_PATH = $(DESTDIR)$(INSTALL_PATH)/tap-$(EFFECT_PATH)
 SRC = $(wildcard *.c)
 
 ## rules
-all: $(SRC) $(wildcard *.h) ../utils/tap_utils.h
+all: $(PLUGIN_SO)
+
+$(PLUGIN_SO): $(SRC) $(wildcard *.h) ../utils/tap_utils.h
 	$(CC) $(SRC) $(CFLAGS) $(LDFLAGS) -o $(PLUGIN_SO)
 
 clean:
