@@ -7,21 +7,15 @@ endif
 
 all:
 	@for fx in $(EFFECTS_DIR); do \
-	cd $$fx; \
-	$(MAKE); \
-	cd ..; \
+	$(MAKE) -C $$fx; \
 	done
 
 install:
 	@for fx in $(EFFECTS_DIR); do \
-	cd $$fx; \
-	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH); \
-	cd ..; \
+	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C $$fx; \
 	done
 
 clean:
 	@for fx in $(EFFECTS_DIR); do \
-	cd $$fx; \
-	$(MAKE) clean; \
-	cd ..; \
+	$(MAKE) clean -C $$fx; \
 	done
