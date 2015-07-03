@@ -4,7 +4,6 @@
 
 <http://moddevices.com/plugins/tap/chorusflanger>
     modgui:gui [
-        a modgui:Gui ;
         modgui:resourcesDirectory <modgui> ;
         modgui:iconTemplate <modgui/icon-tap-chorusflanger.html> ;
         modgui:stylesheet <modgui/stylesheet-tap-chorusflanger.css> ;

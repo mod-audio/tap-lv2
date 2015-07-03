@@ -4,7 +4,6 @@
 
 <http://moddevices.com/plugins/tap/autopan>
     modgui:gui [
-        a modgui:Gui ;
         modgui:resourcesDirectory <modgui> ;
         modgui:iconTemplate <modgui/icon-tap-autopanner.html> ;
         modgui:stylesheet <modgui/stylesheet-tap-autopanner.css> ;
