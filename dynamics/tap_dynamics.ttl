@@ -4,9 +4,9 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix mod: <http://portalmod.com/ns/modgui#>.
+@prefix mod: <http://moddevices.com/ns/modgui#>.
 
-<http://portalmod.com/plugins/tap/dynamics_m>
+<http://moddevices.com/plugins/tap/dynamics_m>
 a lv2:Plugin, lv2:DynamicsPlugin;
 
 doap:name "TAP Mono Dynamics";
@@ -20,8 +20,8 @@ doap:developer [
 
 doap:maintainer [
     foaf:name "MOD Team";
-    foaf:homepage <http://portalmod.com>;
-    foaf:mbox <mailto:devel@portalmod.com>;
+    foaf:homepage <http://moddevices.com>;
+    foaf:mbox <mailto:devel@moddevices.com>;
     ];
 
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
@@ -185,7 +185,7 @@ mod:gui [
     ] .
 
 
-<http://portalmod.com/plugins/tap/dynamics_st>
+<http://moddevices.com/plugins/tap/dynamics_st>
 a lv2:Plugin, lv2:DynamicsPlugin;
 
 doap:name "TAP Stereo Dynamics";
@@ -200,8 +200,8 @@ doap:developer [
 
 doap:maintainer [
     foaf:name "MOD Team";
-    foaf:homepage <http://portalmod.com>;
-    foaf:mbox <mailto:devel@portalmod.com>;
+    foaf:homepage <http://moddevices.com>;
+    foaf:mbox <mailto:devel@moddevices.com>;
     ];
 
 doap:license <http://usefulinc.com/doap/licenses/gpl>;

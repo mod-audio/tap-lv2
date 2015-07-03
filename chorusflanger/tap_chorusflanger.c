@@ -335,7 +335,7 @@ extension_data_ChorusFlanger(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/chorusflanger",
+    "http://moddevices.com/plugins/tap/chorusflanger",
     instantiate_ChorusFlanger,
     connect_port_ChorusFlanger,
     activate_ChorusFlanger,

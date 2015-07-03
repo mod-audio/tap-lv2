@@ -188,7 +188,7 @@ extension_data_Pinknoise(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/pinknoise",
+    "http://moddevices.com/plugins/tap/pinknoise",
     instantiate_Pinknoise,
     connect_port_Pinknoise,
     NULL,

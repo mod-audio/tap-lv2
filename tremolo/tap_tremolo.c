@@ -182,7 +182,7 @@ extension_data_Tremolo(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/tremolo",
+    "http://moddevices.com/plugins/tap/tremolo",
     instantiate_Tremolo,
     connect_port_Tremolo,
     activate_Tremolo,

@@ -428,7 +428,7 @@ extension_data_Doubler(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/doubler",
+    "http://moddevices.com/plugins/tap/doubler",
     instantiate_Doubler,
     connect_port_Doubler,
     activate_Doubler,

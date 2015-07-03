@@ -194,7 +194,7 @@ extension_data_AutoPan(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/autopan",
+    "http://moddevices.com/plugins/tap/autopan",
     instantiate_AutoPan,
     connect_port_AutoPan,
     activate_AutoPan,

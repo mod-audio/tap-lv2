@@ -451,7 +451,7 @@ extension_data_eq(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/eqbw",
+    "http://moddevices.com/plugins/tap/eqbw",
     instantiate_eq,
     connectPort_eq,
     activate_eq,

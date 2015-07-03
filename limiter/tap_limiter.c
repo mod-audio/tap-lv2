@@ -257,7 +257,7 @@ extension_data_Limiter(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/limiter",
+    "http://moddevices.com/plugins/tap/limiter",
     instantiate_Limiter,
     connect_port_Limiter,
     activate_Limiter,

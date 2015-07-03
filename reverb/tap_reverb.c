@@ -543,7 +543,7 @@ extension_data_Reverb(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/reverb",
+    "http://moddevices.com/plugins/tap/reverb",
     instantiate_Reverb,
     connect_port_Reverb,
     activate_Reverb,

@@ -387,7 +387,7 @@ extension_data_TubeWarmth(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/tubewarmth",
+    "http://moddevices.com/plugins/tap/tubewarmth",
     instantiate_TubeWarmth,
     connect_port_TubeWarmth,
     activate_TubeWarmth,

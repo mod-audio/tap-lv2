@@ -284,7 +284,7 @@ extension_data_DeEsser(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/deesser",
+    "http://moddevices.com/plugins/tap/deesser",
     instantiate_DeEsser,
     connect_port_DeEsser,
     activate_DeEsser,

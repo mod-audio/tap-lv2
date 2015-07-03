@@ -2,11 +2,11 @@
 @prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix epp: <http://lv2plug.in/ns/ext/port-props/#>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
-@prefix mod:   <http://portalmod.com/ns/extensions/effect#> .
+@prefix mod:   <http://moddevices.com/ns/extensions/effect#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix mod: <http://portalmod.com/ns/modgui#>.
+@prefix mod: <http://moddevices.com/ns/modgui#>.
 
-<http://portalmod.com/plugins/tap/eqbw>
+<http://moddevices.com/plugins/tap/eqbw>
 a lv2:Plugin, lv2:EQPlugin;
 
 doap:name "TAP Equalizer/BW";
@@ -21,8 +21,8 @@ doap:developer [
 
 doap:maintainer [
     foaf:name "MOD Team";
-    foaf:homepage <http://portalmod.com>;
-    foaf:mbox <mailto:devel@portalmod.com>;
+    foaf:homepage <http://moddevices.com>;
+    foaf:mbox <mailto:devel@moddevices.com>;
     ];
 
 doap:license <http://usefulinc.com/doap/licenses/gpl>;

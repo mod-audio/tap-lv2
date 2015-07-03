@@ -247,7 +247,7 @@ extension_data_Vibrato(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/vibrato",
+    "http://moddevices.com/plugins/tap/vibrato",
     instantiate_Vibrato,
     connect_port_Vibrato,
     activate_Vibrato,

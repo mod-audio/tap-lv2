@@ -405,7 +405,7 @@ extension_data_Reflector(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/reflector",
+    "http://moddevices.com/plugins/tap/reflector",
     instantiate_Reflector,
     connect_port_Reflector,
     activate_Reflector,

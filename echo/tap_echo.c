@@ -335,7 +335,7 @@ extension_data_Echo(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/echo",
+    "http://moddevices.com/plugins/tap/echo",
     instantiate_Echo,
     connect_port_Echo,
     activate_Echo,

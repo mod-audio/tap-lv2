@@ -2,7 +2,7 @@
 @prefix lv2:    <http://lv2plug.in/ns/lv2core#> .
 @prefix ui:     <http://lv2plug.in/ns/extensions/ui#> .
 
-<http://portalmod.com/plugins/tap/autopan>
+<http://moddevices.com/plugins/tap/autopan>
     modgui:gui [
         a modgui:Gui ;
         modgui:resourcesDirectory <modgui> ;

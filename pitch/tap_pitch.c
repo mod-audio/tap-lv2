@@ -304,7 +304,7 @@ extension_data_Pitch(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/pitch",
+    "http://moddevices.com/plugins/tap/pitch",
     instantiate_Pitch,
     connect_port_Pitch,
     activate_Pitch,

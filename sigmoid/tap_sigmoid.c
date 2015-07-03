@@ -231,7 +231,7 @@ extension_data_Sigmoid(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/sigmoid",
+    "http://moddevices.com/plugins/tap/sigmoid",
     instantiate_Sigmoid,
     connect_port_Sigmoid,
     NULL,

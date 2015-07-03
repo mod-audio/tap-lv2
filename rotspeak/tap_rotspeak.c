@@ -589,7 +589,7 @@ extension_data_RotSpkr(const char* uri)
 
 static const
 LV2_Descriptor Descriptor = {
-    "http://portalmod.com/plugins/tap/rotspeak",
+    "http://moddevices.com/plugins/tap/rotspeak",
     instantiate_RotSpkr,
     connect_port_RotSpkr,
     activate_RotSpkr,
