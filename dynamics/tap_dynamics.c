@@ -788,7 +788,7 @@ extension_data_Dynamics(const char* uri)
 
 static const
 LV2_Descriptor MonoDescriptor = {
-    "http://moddevices.com/plugins/tap/dynamics_m",
+    "http://moddevices.com/plugins/tap/dynamics",
     instantiate_MonoDynamics,
     connect_port_MonoDynamics,
     activate_Dynamics,
@@ -800,7 +800,7 @@ LV2_Descriptor MonoDescriptor = {
 
 static const
 LV2_Descriptor StereoDescriptor = {
-    "http://moddevices.com/plugins/tap/dynamics_st",
+    "http://moddevices.com/plugins/tap/dynamics-st",
     instantiate_StereoDynamics,
     connect_port_StereoDynamics,
     activate_Dynamics,

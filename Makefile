@@ -9,6 +9,7 @@ all:
 	$(MAKE) -C deesser
 	$(MAKE) -C doubler
 	$(MAKE) -C dynamics
+	$(MAKE) -C dynamics-st
 	$(MAKE) -C echo
 	$(MAKE) -C eq
 	$(MAKE) -C eqbw
@@ -29,6 +30,7 @@ install:
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C deesser
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C doubler
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C dynamics
+	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C dynamics-st
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C echo
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C eq
 	$(MAKE) install INSTALL_PATH=$(INSTALL_PATH) -C eqbw
@@ -50,6 +52,7 @@ clean:
 	$(MAKE) clean -C deesser
 	$(MAKE) clean -C doubler
 	$(MAKE) clean -C dynamics
+	$(MAKE) clean -C dynamics-st
 	$(MAKE) clean -C echo
 	$(MAKE) clean -C eq
 	$(MAKE) clean -C eqbw
