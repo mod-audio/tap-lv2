@@ -55,6 +55,7 @@ typedef struct {
     float * input;
     float * output;
 
+    int interpolating;
     float pregain_i;
     float postgain_i;
 
@@ -67,10 +68,12 @@ typedef struct {
 LV2_Handle
 instantiate_Sigmoid(const LV2_Descriptor * Descriptor, double SampleRate, const char* bundle_path, const LV2_Feature* const* features) {
 
-        LV2_Handle * ptr;
+        LV2_Handle * Instance;
 
-    if ((ptr = malloc(sizeof(Sigmoid))) != NULL) {
-        ((Sigmoid *)ptr)->sample_rate = SampleRate;
+    if ((Instance = malloc(sizeof(Sigmoid))) != NULL) {
+        Sigmoid * ptr = (Sigmoid *)Instance;
+        ptr->interpolating = 0;
+        ptr->sample_rate   = SampleRate;
 
         return ptr;
     }
@@ -85,16 +88,13 @@ connect_port_Sigmoid(LV2_Handle Instance,
                void * DataLocation) {
 
     Sigmoid * ptr = (Sigmoid *)Instance;
-    float value = * ((float *) DataLocation);
 
     switch (Port) {
     case PREGAIN:
         ptr->pregain = (float *) DataLocation;
-        ptr->pregain_i = db2lin(LIMIT(value,-90.0f,20.0f));
         break;
     case POSTGAIN:
         ptr->postgain = (float *) DataLocation;
-        ptr->postgain_i = db2lin(LIMIT(value,-90.0f,20.0f));
         break;
     case INPUT:
         ptr->input = (float *) DataLocation;
@@ -103,6 +103,13 @@ connect_port_Sigmoid(LV2_Handle Instance,
         ptr->output = (float *) DataLocation;
         break;
     }
+}
+
+
+void activate_Sigmoid(LV2_Handle Instance) {
+
+    Sigmoid * ptr = (Sigmoid *)Instance;
+    ptr->interpolating = 0;
 }
 
 
@@ -115,6 +122,13 @@ run_Sigmoid(LV2_Handle Instance,
     float * output = ptr->output;
     float pregain = db2lin(LIMIT(*(ptr->pregain),-90.0f,20.0f));
     float postgain = db2lin(LIMIT(*(ptr->postgain),-90.0f,20.0f));
+
+    if (ptr->interpolating == 0) {
+        ptr->interpolating = 1;
+        ptr->pregain_i = pregain;
+        ptr->postgain_i = postgain;
+    }
+
     float pregain_i = ptr->pregain_i;
     float postgain_i = ptr->postgain_i;
 
@@ -234,7 +248,7 @@ LV2_Descriptor Descriptor = {
     "http://moddevices.com/plugins/tap/sigmoid",
     instantiate_Sigmoid,
     connect_port_Sigmoid,
-    NULL,
+    activate_Sigmoid,
     run_Sigmoid,
     NULL,
     cleanup_Sigmoid,
