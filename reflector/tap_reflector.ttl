@@ -81,12 +81,4 @@ lv2:port
     lv2:index 4;
     lv2:symbol "output";
     lv2:name "Output";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-reflector.html>;
-        mod:templateData <modgui/data-tap-reflector.json>;
-        mod:screenshot <modgui/screenshot-tap-reflector.png>;
-        mod:thumbnail <modgui/thumb-tap-reflector.png>;
-    ] .
+].

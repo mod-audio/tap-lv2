@@ -83,12 +83,4 @@ lv2:port
     lv2:index 4;
     lv2:symbol "output_0";
     lv2:name "Output_0";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-tremolo.html>;
-        mod:templateData <modgui/data-tap-tremolo.json>;
-        mod:screenshot <modgui/screenshot-tap-tremolo.png>;
-        mod:thumbnail <modgui/thumb-tap-tremolo.png>;
-    ] .
+].

@@ -109,12 +109,4 @@ lv2:port
     lv2:index 8;
     lv2:symbol "outputr";
     lv2:name "Output R";
-];
- mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-rotary-speaker.html>;
-        mod:templateData <modgui/data-tap-rotary-speaker.json>;
-        mod:screenshot <modgui/screenshot-tap-rotary-speaker.png>;
-        mod:thumbnail <modgui/thumb-tap-rotary-speaker.png>;
-    ] .
+].

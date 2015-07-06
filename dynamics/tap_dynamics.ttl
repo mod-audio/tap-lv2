@@ -174,12 +174,4 @@ lv2:port
     lv2:index 8;
     lv2:symbol "output";
     lv2:name "Output";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-dynamics-m.html>;
-        mod:templateData <modgui/data-tap-dynamics-m.json>;
-        mod:screenshot <modgui/screenshot-tap-dynamics-m.png>;
-        mod:thumbnail <modgui/thumb-tap-dynamics-m.png>;
-    ] .
+].

@@ -356,13 +356,4 @@ lv2:port
     lv2:index 11;
     lv2:symbol "outputr";
     lv2:name "Output Right";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-reverberator.html>;
-        mod:templateData <modgui/data-tap-reverberator.json>;
-        mod:screenshot <modgui/screenshot-tap-reverberator.png>;
-        mod:thumbnail <modgui/thumb-tap-reverberator.png>;
-    ] .
-   
+].

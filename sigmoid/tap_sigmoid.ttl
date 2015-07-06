@@ -66,12 +66,4 @@ lv2:port
     lv2:index 3;
     lv2:symbol "Output";
     lv2:name "Output";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-sigmoid.html>;
-        mod:templateData <modgui/data-tap-sigmoid.json>;
-        mod:screenshot <modgui/screenshot-tap-sigmoid.png>;
-        mod:thumbnail <modgui/thumb-tap-sigmoid.png>;
-    ] .
+].

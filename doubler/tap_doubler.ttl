@@ -59,10 +59,11 @@ lv2:port
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 2;
     lv2:symbol "DryLevelDb";
-    lv2:name "Dry Level [dB]";
+    lv2:name "Dry Level";
     lv2:default 0;
     lv2:minimum -90;
     lv2:maximum 20;
+    units:unit units:db;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
@@ -86,10 +87,11 @@ lv2:port
     a lv2:InputPort, lv2:ControlPort;
     lv2:index 5;
     lv2:symbol "WetLevelDb";
-    lv2:name "Wet Level [dB]";
+    lv2:name "Wet Level";
     lv2:default 0;
     lv2:minimum -90;
     lv2:maximum 20;
+    units:unit units:db;
 ],
 [
     a lv2:InputPort, lv2:ControlPort;
@@ -132,12 +134,4 @@ lv2:port
     lv2:index 11;
     lv2:symbol "Output_R";
     lv2:name "Output_R";
-];
-    mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-fractal-doubler.html>;
-        mod:templateData <modgui/data-tap-fractal-doubler.json>;
-        mod:screenshot <modgui/screenshot-tap-fractal-doubler.png>;
-        mod:thumbnail <modgui/thumb-tap-fractal-doubler.png>;
-    ] .
+].

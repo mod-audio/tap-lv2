@@ -5,7 +5,6 @@
 @prefix mod: <http://moddevices.com/ns/modgui#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-
 <http://moddevices.com/plugins/tap/vibrato>
 a lv2:Plugin, lv2:ModulatorPlugin;
 
@@ -92,12 +91,4 @@ lv2:port
     lv2:index 6;
     lv2:symbol "output";
     lv2:name "Output";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-vibrato.html>;
-        mod:templateData <modgui/data-tap-vibrato.json>;
-        mod:screenshot <modgui/screenshot-tap-vibrato.png>;
-        mod:thumbnail <modgui/thumb-tap-vibrato.png>;
-    ] .
+].

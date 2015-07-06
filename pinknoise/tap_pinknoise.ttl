@@ -70,19 +70,10 @@ lv2:port
     lv2:index 3;
     lv2:symbol "input";
     lv2:name "Input";
-
 ],
 [
     a lv2:AudioPort, lv2:OutputPort;
     lv2:index 4;
     lv2:symbol "output";
     lv2:name "Output";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-pinknoise.html>;
-        mod:templateData <modgui/data-tap-pinknoise.json>;
-        mod:screenshot <modgui/screenshot-tap-pinknoise.png>;
-        mod:thumbnail <modgui/thumb-tap-pinknoise.png>;
-    ] .
+].
