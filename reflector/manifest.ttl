@@ -3,5 +3,5 @@
 
 <http://moddevices.com/plugins/tap/reflector> a lv2:Plugin;
     lv2:binary <tap_reflector.so>;
-    rdfs:seeAlso <tap_reflector.ttl>.
+    rdfs:seeAlso <tap_reflector.ttl>,<modgui.ttl>.
 

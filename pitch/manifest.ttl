@@ -3,5 +3,5 @@
 
 <http://moddevices.com/plugins/tap/pitch> a lv2:Plugin;
     lv2:binary <tap_pitch.so>;
-    rdfs:seeAlso <tap_pitch.ttl>.
+    rdfs:seeAlso <tap_pitch.ttl>,<modgui.ttl>.
 
