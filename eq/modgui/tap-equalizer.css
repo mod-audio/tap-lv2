@@ -1,54 +1,54 @@
 /* MOD EQUALIZER */
-.mod-tap-equalizer-bw {
-    background-image: url(/resources/tap-eqbw-background.png{{{ns}}});
+.mod-tap-equalizer {
+    background-image: url(/resources/tap-equalizer-background.png{{{ns}}});
     background-position: center center;
     background-repeat: no-repeat;
     color: black;
-    height: 444px;
+    height: 394px;
     padding: 0;
     width: 618px;
 }
 /* BRAND */
-.mod-tap-equalizer-bw .mod-tap-equalizer-bw-brand {
+.mod-tap-equalizer .mod-tap-equalizer-brand {
     background: rgba(0,0,0,0.9);
     border-radius: 8px;
     bottom: 60px;
     color: white;
-    left: 335px;
+    left: 406px;
     padding: 13px 20px;
     position: absolute;
     right: 46px;
     text-align: center;
 }
-.mod-tap-equalizer-bw .mod-plugin-author {
+.mod-tap-equalizer .mod-plugin-author {
     font-size: 16px;
     font-weight: bold;
 }
-.mod-tap-equalizer-bw .mod-plugin-name {
+.mod-tap-equalizer .mod-plugin-name {
     margin-right: 10px;
 }
 /* DRAG */
-.mod-tap-equalizer-bw .mod-drag-handle {
+.mod-tap-equalizer .mod-drag-handle {
     z-index: 20;
 }
 /* SLIDERS */
-.mod-tap-equalizer-bw .mod-control-group-1 {
+.mod-tap-equalizer .mod-control-group-1 {
     left: 65px;
     position: absolute;
     right: 0;
     top: 23px;
     z-index: 30;
 }
-.mod-tap-equalizer-bw .mod-control-group .mod-slider {
+.mod-tap-equalizer .mod-control-group .mod-slider {
     height: 180px;
     margin-right: 8px;
     position: relative;
     width: 60px;
 }
-.mod-tap-equalizer-bw .mod-control-group .mod-slider:first-child {
+.mod-tap-equalizer .mod-control-group .mod-slider:first-child {
     margin-left: 0px;
 }
-.mod-tap-equalizer-bw .mod-control-group .mod-slider .mod-slider-title {
+.mod-tap-equalizer .mod-control-group .mod-slider .mod-slider-title {
     background-color: rgba(0,0,0,0.9);
     border-radius: 8px 8px 0 0;
     color: #fff;
@@ -57,7 +57,7 @@
     margin-bottom: 1px;
     z-index: 40;
 }
-.mod-tap-equalizer-bw .mod-control-group .mod-slider .mod-slider-image-wrapper {
+.mod-tap-equalizer .mod-control-group .mod-slider .mod-slider-image-wrapper {
     background-color: rgb(235,199,38);
     border-radius: 0;
     padding: 10px 0;
@@ -65,19 +65,13 @@
     z-index: 30;
 }
 /* KNOBS */
-.mod-tap-equalizer-bw .mod-control-group-2 {
+.mod-tap-equalizer .mod-control-group-2 {
     left: 65px;
     position: absolute;
     top: 181px;
     z-index: 30;
 }
-.mod-tap-equalizer-bw .mod-control-group-3 {
-    left: 65px;
-    position: absolute;
-    top: 263px;
-    z-index: 30;
-}
-.mod-tap-equalizer-bw .mod-control-group .mod-knob {
+.mod-tap-equalizer .mod-control-group .mod-knob {
     display:inline-block;
     float: left;
     height:60px;
@@ -85,14 +79,11 @@
     position:relative;
     width:60px;
 }
-.mod-tap-equalizer-bw .mod-control-group .mod-knob .mod-knob-image-wrapper {
+.mod-tap-equalizer .mod-control-group .mod-knob .mod-knob-image-wrapper {
     background-color: rgb(235,199,38);
     padding: 5px;
 }
-.mod-tap-equalizer-bw .mod-control-group-3 .mod-knob .mod-knob-image-wrapper {
-    border-radius: 0 0 8px 8px;
-}
-.mod-tap-equalizer-bw .mod-control-group .mod-knob .mod-knob-image {
+.mod-tap-equalizer .mod-control-group .mod-knob .mod-knob-image {
     background-image: url(/resources/tap-equalizer-knob.png{{{ns}}});
     background-position: left center;
     background-repeat: no-repeat;
@@ -102,9 +93,9 @@
     overflow: hidden;
     width: 50px;
 }
-.mod-tap-equalizer-bw .mod-control-group .mod-knob .mod-knob-value {
+.mod-tap-equalizer .mod-control-group .mod-knob .mod-knob-value {
     background-color: rgba(0,0,0,0.9);
-    border-radius: 0;
+    border-radius: 0 0 8px 8px;
     color: #fff;
     font-size: 12px;
     font-weight: bold;
@@ -112,24 +103,25 @@
     text-align: center;
 }
 /* FOOTSWITCH */
-.mod-tap-equalizer-bw .mod-footswitch {
+.mod-tap-equalizer .mod-footswitch {
     background-image:url(/resources/footswitch.png{{{ns}}});
     background-position:bottom center;
     background-repeat:no-repeat;
     background-size:auto 132px;
     bottom: 52px;
-    left: 165px;
+    left: 0px;
+    right: 0px;
     cursor:pointer;
     height:66px;
     width: 66px;
     margin: 0 auto;
-    position:absolute;
+    position:absolute !important;
 }
-.mod-tap-equalizer-bw .mod-footswitch .mod-footswitch.on {
+.mod-tap-equalizer .mod-footswitch .mod-footswitch.on {
     background-position-y: top !important
 }
 /* LIGHT */
-.mod-tap-equalizer-bw .mod-light {
+.mod-tap-equalizer .mod-light {
     background-position: center center;
     background-repeat: no-repeat;
     display: inline-block;
@@ -139,17 +131,17 @@
     width: 32px;
     z-index: 40;
 }
-.mod-tap-equalizer-bw .mod-light.off {
+.mod-tap-equalizer .mod-light.off {
     background-image: url(/resources/red-light-off.png{{{ns}}});
 }
-.mod-tap-equalizer-bw .mod-light.on {
+.mod-tap-equalizer .mod-light.on {
     background-image: url(/resources/red-light-on.png{{{ns}}});
 }
 /* SLIDER */
-.mod-tap-equalizer-bw .mod-slider:first-child {
+.mod-tap-equalizer .mod-slider:first-child {
     margin-left:8px;
 }
-.mod-tap-equalizer-bw .mod-slider {
+.mod-tap-equalizer .mod-slider {
     color:black;
     float:left;
     font-size:11px;
@@ -161,7 +153,7 @@
     text-align:center;
     width:33px;
 }
-.mod-tap-equalizer-bw .mod-slider .mod-slider-title {
+.mod-tap-equalizer .mod-slider .mod-slider-title {
     display:block;
     font-size:11px;
     font-weight:bold;
@@ -172,7 +164,7 @@
     padding:7px 0 5px;
     position:relative;
 }
-.mod-tap-equalizer-bw .mod-slider .mod-slider-image {
+.mod-tap-equalizer .mod-slider .mod-slider-image {
     background-image:url(/resources/slider.png{{{ns}}});
     background-repeat:no-repeat;
     background-size:auto 110px;
@@ -180,6 +172,6 @@
     margin:0 auto;
     width:44px;
 }
-.mod-tap-equalizer-bw .mod-slider .mod-slider-image:hover {
+.mod-tap-equalizer .mod-slider .mod-slider-image:hover {
     cursor:pointer;
 }

@@ -11,19 +11,20 @@ a lv2:Plugin, lv2:EQPlugin;
 
 doap:name "TAP Equalizer/BW";
 
-mod:label "TAP EqualizerBW";
+mod:brand "TAP";
+mod:label "Equalizer/BW";
 
 doap:developer [
     foaf:name "Tom Szilagyi";
     foaf:homepage <http://tap-plugins.sourceforge.net/>;
     foaf:mbox <mailto:tsziagyi@users.sourceforge.net>;
-    ];
+];
 
 doap:maintainer [
     foaf:name "MOD Team";
     foaf:homepage <http://moddevices.com>;
     foaf:mbox <mailto:devel@moddevices.com>;
-    ];
+];
 
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:minorVersion 7;
@@ -263,14 +264,4 @@ lv2:port
     lv2:index 25;
     lv2:symbol "Output";
     lv2:name "Output";
-];
-
-mod:gui [
-    a mod:Gui;
-    mod:resourcesDirectory <modgui>;
-    mod:iconTemplate <modgui/icon-tap-equalizerbw.html>;
-    mod:stylesheet <modgui/tap-equalizerbw.css>;
-    mod:templateData <modgui/data-tap-equalizerbw.json>;
-    mod:screenshot <modgui/screenshot-tap-equalizerbw.png>;
-    mod:thumbnail <modgui/thumb-tap-equalizerbw.png>;
-] .
+].
