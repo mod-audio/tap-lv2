@@ -39,5 +39,5 @@ clean:
 	$(RM) *.so *.o *~
 
 install: all
-	install -d $(INSTALLATION_PATH)
-	install -m 644 *.so *.ttl $(INSTALLATION_PATH)
+	mkdir -p $(INSTALLATION_PATH)
+	cp -r 644 *.so *.ttl modgui $(INSTALLATION_PATH)
