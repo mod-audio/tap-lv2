@@ -40,4 +40,4 @@ clean:
 
 install: all
 	mkdir -p $(INSTALLATION_PATH)
-	cp -r 644 *.so *.ttl modgui $(INSTALLATION_PATH)
+	cp -r *.so *.ttl modgui $(INSTALLATION_PATH)
