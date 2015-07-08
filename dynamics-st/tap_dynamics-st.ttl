@@ -4,14 +4,12 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix mod: <http://moddevices.com/ns/modgui#>.
+@prefix mod: <http://moddevices.com/ns/mod#>.
 
 <http://moddevices.com/plugins/tap/dynamics-st>
 a lv2:Plugin, lv2:DynamicsPlugin;
 
 doap:name "TAP Stereo Dynamics";
-
-mod:label "TAP Dyn (St)";
 
 doap:developer [
     foaf:name "Tom Szilagyi";
@@ -24,6 +22,9 @@ doap:maintainer [
     foaf:homepage <http://moddevices.com>;
     foaf:mbox <mailto:devel@moddevices.com>;
     ];
+
+mod:brand "TAP";
+mod:label "Stereo Dynamics";
 
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:minorVersion 7;
@@ -229,12 +230,4 @@ lv2:port
     lv2:index 13;
     lv2:symbol "outr";
     lv2:name "Output Right";
-];
-mod:gui [
-        a mod:Gui;
-        mod:resourcesDirectory <modgui>;
-        mod:iconTemplate <modgui/icon-tap-stereo-dynamics.html>;
-        mod:templateData <modgui/data-tap-stereo-dynamics.json>;
-        mod:screenshot <modgui/screenshot-tap-stereo-dynamics.png>;
-        mod:thumbnail <modgui/thumb-tap-stereo-dynamics.png>;
-    ] .
+].

@@ -4,7 +4,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix mod: <http://moddevices.com/ns/modgui#>.
+@prefix mod: <http://moddevices.com/ns/mod#>.
 
 <http://moddevices.com/plugins/tap/dynamics>
 a lv2:Plugin, lv2:DynamicsPlugin;
@@ -23,6 +23,9 @@ doap:maintainer [
     foaf:homepage <http://moddevices.com>;
     foaf:mbox <mailto:devel@moddevices.com>;
     ];
+
+mod:brand "TAP";
+mod:label "Mono Dynamics";
 
 doap:license <http://usefulinc.com/doap/licenses/gpl>;
 lv2:minorVersion 7;
