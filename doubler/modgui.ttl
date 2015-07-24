@@ -37,12 +37,12 @@
             lv2:name "Pitch" ;
         ] , [
             lv2:index 5 ;
-            lv2:symbol "WeLeftPosition" ;
+            lv2:symbol "WetLeftPosition" ;
             lv2:name "Wet Left" ;
         ] , [
             lv2:index 6 ;
-            lv2:symbol "WeLeftPosition" ;
-            lv2:name "Wet Left" ;
+            lv2:symbol "WetRightPosition" ;
+            lv2:name "Wet Right" ;
         ] , [
             lv2:index 7 ;
             lv2:symbol "DryLevelDb" ;
