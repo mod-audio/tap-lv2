@@ -45,7 +45,7 @@
             lv2:name "Wet Right" ;
         ] , [
             lv2:index 7 ;
-            lv2:symbol "DryLevelDb" ;
-            lv2:name "Dry Lvl" ;
+            lv2:symbol "WetLevelDb" ;
+            lv2:name "Wet Lvl" ;
         ] ;
     ] .
