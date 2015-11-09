@@ -12,19 +12,19 @@
         modgui:label "TAP Tremolo" ;
         modgui:model "boxy" ;
         modgui:panel "3-knobs" ;
-        modgui:color "purple" ;
+        modgui:color "racing" ;
         modgui:knob "black" ;
         modgui:port [
             lv2:index 0 ;
-            lv2:symbol "frequency" ;
-            lv2:name "Freq" ;
-        ] , [
-            lv2:index 1 ;
             lv2:symbol "depth" ;
             lv2:name "Depth" ;
         ] , [
+            lv2:index 1 ;
+            lv2:symbol "frequency" ;
+            lv2:name "Rate" ;
+        ] , [
             lv2:index 2 ;
             lv2:symbol "gain" ;
-            lv2:name "Gain" ;
+            lv2:name "Level" ;
         ] ;
     ] .

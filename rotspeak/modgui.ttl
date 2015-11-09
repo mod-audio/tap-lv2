@@ -17,15 +17,15 @@
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "hornfreq" ;
-            lv2:name "Hrn Frq" ;
+            lv2:name "HornFrq" ;
         ] , [
             lv2:index 1 ;
             lv2:symbol "bassfreq" ;
-            lv2:name "Rotr Frq" ;
+            lv2:name "RotorFrq" ;
         ] , [
             lv2:index 2 ;
             lv2:symbol "stwidht" ;
-            lv2:name "Mic Dist" ;
+            lv2:name "Distance" ;
         ] , [
             lv2:index 3 ;
             lv2:symbol "hrbal" ;

@@ -20,31 +20,31 @@
             lv2:name "Time" ;
         ] , [
             lv2:index 1 ;
-            lv2:symbol "DryLeftPosition" ;
-            lv2:name "Dry Left" ;
+            lv2:symbol "WetLeftPosition" ;
+            lv2:name "Wet Left Position" ;
         ] , [
             lv2:index 2 ;
-            lv2:symbol "DryRightPosition" ;
-            lv2:name "Dry Right" ;
+            lv2:symbol "WetRightPosition" ;
+            lv2:name "Wet Right Position" ;
         ] , [
             lv2:index 3 ;
-            lv2:symbol "DryLevelDb" ;
-            lv2:name "Dry Lvl" ;
+            lv2:symbol "WetLevelDb" ;
+            lv2:name "Wet Level" ;
         ] , [
             lv2:index 4 ;
             lv2:symbol "PitchTracking" ;
             lv2:name "Pitch" ;
         ] , [
             lv2:index 5 ;
-            lv2:symbol "WetLeftPosition" ;
-            lv2:name "Wet Left" ;
+            lv2:symbol "DryLeftPosition" ;
+            lv2:name "Dry Left Position" ;
         ] , [
             lv2:index 6 ;
-            lv2:symbol "WetRightPosition" ;
-            lv2:name "Wet Right" ;
+            lv2:symbol "DryRightPosition" ;
+            lv2:name "Dry Right Position" ;
         ] , [
             lv2:index 7 ;
-            lv2:symbol "WetLevelDb" ;
-            lv2:name "Wet Lvl" ;
+            lv2:symbol "DryLevelDb" ;
+            lv2:name "Dry Level" ;
         ] ;
     ] .

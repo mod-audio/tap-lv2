@@ -17,10 +17,10 @@
         modgui:port [
             lv2:index 0 ;
             lv2:symbol "limitlevel" ;
-            lv2:name "Limit Level" ;
+            lv2:name "Limit" ;
         ] , [
             lv2:index 1 ;
             lv2:symbol "outputvolume" ;
-            lv2:name "Output Vol" ;
+            lv2:name "Level" ;
         ] ;
     ] .

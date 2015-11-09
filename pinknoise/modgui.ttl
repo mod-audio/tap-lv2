@@ -12,19 +12,19 @@
         modgui:label "Pink/Fractal Noise" ;
         modgui:model "boxy" ;
         modgui:panel "3-knobs" ;
-        modgui:color "green" ;
+        modgui:color "pink" ;
         modgui:knob "black" ;
         modgui:port [
             lv2:index 0 ;
-            lv2:symbol "hurst" ;
-            lv2:name "Dimension" ;
-        ] , [
-            lv2:index 1 ;
-            lv2:symbol "signal" ;
-            lv2:name "Level" ;
-        ] , [
-            lv2:index 2 ;
             lv2:symbol "noise" ;
             lv2:name "Noise" ;
+        ] , [
+            lv2:index 1 ;
+            lv2:symbol "hurst" ;
+            lv2:name "Fractal" ;
+        ] , [
+            lv2:index 2 ;
+            lv2:symbol "signal" ;
+            lv2:name "Level" ;
         ] ;
     ] .
