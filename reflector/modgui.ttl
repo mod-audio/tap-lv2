@@ -21,10 +21,10 @@
         ] , [
             lv2:index 1 ;
             lv2:symbol "dry" ;
-            lv2:name "Dry Level" ;
+            lv2:name "Dry" ;
         ] , [
             lv2:index 2 ;
             lv2:symbol "wet" ;
-            lv2:name "Wet Level" ;
+            lv2:name "Wet" ;
         ] ;
     ] .

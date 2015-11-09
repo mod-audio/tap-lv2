@@ -25,7 +25,7 @@
         ] , [
             lv2:index 2 ;
             lv2:symbol "Wetlevel" ;
-            lv2:name "Wet Level" ;
+            lv2:name "Wet" ;
         ] , [
             lv2:index 3 ;
             lv2:symbol "Latency" ;
@@ -33,6 +33,6 @@
         ] , [
             lv2:index 4 ;
             lv2:symbol "Drylevel" ;
-            lv2:name "Dry Level" ;
+            lv2:name "Dry" ;
         ] ;
     ] .
