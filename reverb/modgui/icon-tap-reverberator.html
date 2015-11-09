@@ -15,7 +15,7 @@
         </div>
         {{/controls.0}}
     </div>
-    <div class="mod-control-group top clearfix">
+    <div class="mod-control-group mod-{{knob}} top clearfix">
         {{#controls.1}}
         <div class="mod-knob">
             <div class="mod-knob-image" mod-role="input-control-port" mod-port-symbol="{{symbol}}"></div>
@@ -47,6 +47,11 @@
             <div class="mod-pedal-input-image"></div>
         </div>
         {{/effect.ports.midi.input}}
+        {{#effect.ports.cv.input}}
+        <div class="mod-input mod-input-disconnected" title="{{name}}" mod-role="input-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-input-image"></div>
+        </div>
+        {{/effect.ports.cv.input}}
     </div>
     <div class="mod-pedal-output">
         {{#effect.ports.audio.output}}
@@ -59,5 +64,10 @@
             <div class="mod-pedal-output-image"></div>
         </div>
         {{/effect.ports.midi.output}}
+        {{#effect.ports.cv.output}}
+        <div class="mod-output mod-output-disconnected" title="{{name}}" mod-role="output-cv-port" mod-port-symbol="{{symbol}}">
+            <div class="mod-pedal-output-image"></div>
+        </div>
+        {{/effect.ports.cv.output}}
     </div>
 </div>
