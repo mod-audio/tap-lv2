@@ -112,19 +112,16 @@ instantiate_ChorusFlanger(const LV2_Descriptor * Descriptor, double sample_rate,
 	if ((ptr = malloc(sizeof(ChorusFlanger))) != NULL) {
 		((ChorusFlanger *)ptr)->sample_rate = sample_rate;
 
+		const unsigned long fullbuflen = (DEPTH_BUFLEN + DELAY_BUFLEN) * sample_rate / 192000;
 
-		if ((((ChorusFlanger *)ptr)->ring_L =
-		     calloc((DEPTH_BUFLEN + DELAY_BUFLEN) * sample_rate / 192000,
-			    sizeof(float))) == NULL)
+		if ((((ChorusFlanger *)ptr)->ring_L = calloc(fullbuflen, sizeof(float))) == NULL)
 			return NULL;
-		((ChorusFlanger *)ptr)->buflen_L = (DEPTH_BUFLEN + DELAY_BUFLEN) * sample_rate / 192000;
+		((ChorusFlanger *)ptr)->buflen_L = fullbuflen;
 		((ChorusFlanger *)ptr)->pos_L = 0;
 
-		if ((((ChorusFlanger *)ptr)->ring_R =
-		     calloc((DEPTH_BUFLEN + DELAY_BUFLEN) * sample_rate / 192000,
-			    sizeof(float))) == NULL)
+		if ((((ChorusFlanger *)ptr)->ring_R = calloc(fullbuflen, sizeof(float))) == NULL)
 			return NULL;
-		((ChorusFlanger *)ptr)->buflen_R = (DEPTH_BUFLEN + DELAY_BUFLEN) * sample_rate / 192000;
+		((ChorusFlanger *)ptr)->buflen_R = fullbuflen;
 		((ChorusFlanger *)ptr)->pos_R = 0;
 
 
@@ -149,12 +146,9 @@ void
 activate_ChorusFlanger(LV2_Handle Instance) {
 
 	ChorusFlanger * ptr = (ChorusFlanger *)Instance;
-	unsigned long i;
 
-	for (i = 0; i < (DEPTH_BUFLEN + DELAY_BUFLEN) * ptr->sample_rate / 192000; i++) {
-		ptr->ring_L[i] = 0.0f;
-		ptr->ring_R[i] = 0.0f;
-	}
+	memset(ptr->ring_L, 0, sizeof(float)*ptr->buflen_L);
+	memset(ptr->ring_R, 0, sizeof(float)*ptr->buflen_R);
 
 	biquad_init(&ptr->highpass_L);
 	biquad_init(&ptr->highpass_R);
