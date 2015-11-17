@@ -20,7 +20,7 @@
             lv2:name "Depth" ;
         ] , [
             lv2:index 1 ;
-            lv2:symbol "Depth" ;
+            lv2:symbol "Frequency";
             lv2:name "Rate" ;
         ] , [
             lv2:index 2 ;
