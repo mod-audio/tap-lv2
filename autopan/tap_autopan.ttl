@@ -43,7 +43,6 @@ lv2:port
     lv2:index 0;
     lv2:symbol "Frequency";
     lv2:name "Frequency";
-    lv2:shortname "Frequency";
     lv2:default 3.0;
     lv2:minimum 0.0;
     lv2:maximum 20.0;
@@ -54,7 +53,6 @@ lv2:port
     lv2:index 1;
     lv2:symbol "Depth";
     lv2:name "Depth";
-    lv2:shortname "Depth";
     lv2:default 80.0;
     lv2:minimum 0.0;
     lv2:maximum 100.0;
@@ -65,7 +63,6 @@ lv2:port
     lv2:index 2;
     lv2:symbol "Gain";
     lv2:name "Gain";
-    lv2:shortname "Gain";
     lv2:default 0.0;
     lv2:minimum -70.0;
     lv2:maximum 20.0;
@@ -76,26 +73,22 @@ lv2:port
     lv2:index 3;
     lv2:symbol "InputL";
     lv2:name "Input L";
-    lv2:shortname "Input L";
 ],
 [
     a lv2:InputPort, lv2:AudioPort;
     lv2:index 4;
     lv2:symbol "InputR";
     lv2:name "Input R";
-    lv2:shortname "Input R";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 5;
     lv2:symbol "OutputL";
     lv2:name "Output L";
-    lv2:shortname "Output L";
 ],
 [
     a lv2:OutputPort, lv2:AudioPort;
     lv2:index 6;
     lv2:symbol "OutputR";
     lv2:name "Output R";
-    lv2:shortname "Output R";
 ].
