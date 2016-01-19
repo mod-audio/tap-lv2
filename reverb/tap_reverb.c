@@ -274,6 +274,7 @@ instantiate_Reverb(const LV2_Descriptor * Descriptor, double SampleRate, const c
 
     if ((p = malloc(sizeof(Reverb))) != NULL) {
         ((Reverb *)p)->sample_rate = SampleRate;
+        ((Reverb *)p)->smoothdecay =0.0f;
 
         ptr = (Reverb *)p;
 
@@ -411,7 +412,8 @@ run_Reverb(LV2_Handle Instance,
     unsigned long sample_index;
     int i;
 
-    float decay = LIMIT(*(ptr->decay),0.0f,10000.0f);
+    float decay = (LIMIT(*(ptr->decay),0.0f,10000.0f)+ptr->smoothdecay)*0.5;
+    ptr->smoothdecay = decay;
     float drylevel = db2lin(LIMIT(*(ptr->drylevel),-70.0f,10.0f));
     float wetlevel = db2lin(LIMIT(*(ptr->wetlevel),-70.0f,10.0f));
     float combs_en = LIMIT(*(ptr->combs_en),-2.0f,2.0f);

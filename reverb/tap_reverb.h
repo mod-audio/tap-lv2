@@ -254,6 +254,7 @@ typedef struct {
     unsigned long sample_rate;
 
     float * decay;
+    float smoothdecay; //for smoothing the decay parameter
     float * drylevel;
     float * wetlevel;
     float * combs_en; /* on/off */

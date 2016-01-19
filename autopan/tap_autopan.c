@@ -27,7 +27,7 @@
 #include <string.h>
 #include <math.h>
 
-#include <lv2.h>
+#include "lv2.h"
 #include "tap_utils.h"
 
 /* The Unique ID of the plugin: */
@@ -53,6 +53,7 @@
 /* cosine table for fast computations */
 float cos_table[1024];
 int flag = 0;
+float Ogain=0;
 
 
 /* The structure used to hold port connection information and state */
@@ -67,7 +68,6 @@ typedef struct {
 	float * output_R;
 	double SampleRate;
 	float Phase;
-	float Ogain;
 } AutoPan;
 
 
@@ -81,7 +81,6 @@ instantiate_AutoPan(const LV2_Descriptor * Descriptor,double SampleRate, const c
 
 	if ((ptr = malloc(sizeof(AutoPan))) != NULL) {
 		((AutoPan *)ptr)->SampleRate = SampleRate;
-		((AutoPan *)ptr)->Ogain = 0.0f;
             if(flag == 0)
 	        {
                 for (i = 0; i < 1024; i++)
@@ -158,8 +157,8 @@ run_AutoPan(LV2_Handle Instance,
 	float * output_R = ptr->output_R;
 	float freq = LIMIT(*(ptr->freq),0.0f,20.0f);
 	float depth = LIMIT(*(ptr->depth),0.0f,100.0f);
-	float gain = (db2lin(LIMIT(*(ptr->gain),-70.0f,20.0f))+ptr->Ogain)*0.5;
-	ptr->Ogain = gain;
+	float gain = (db2lin(LIMIT(*(ptr->gain),-70.0f,20.0f))+Ogain)*0.5;
+	Ogain=gain;
 	unsigned long sample_index;
 	float phase_L = 0;
 	float phase_R = 0;
