@@ -274,7 +274,9 @@ instantiate_Reverb(const LV2_Descriptor * Descriptor, double SampleRate, const c
 
     if ((p = malloc(sizeof(Reverb))) != NULL) {
         ((Reverb *)p)->sample_rate = SampleRate;
-        ((Reverb *)p)->smoothdecay =0.0f;
+        ((Reverb *)p)->smoothdecay =2800.0f;
+        ((Reverb *)p)->smoothdry = -4.0f;
+        ((Reverb *)p)->smoothwet = -12.0f;
 
         ptr = (Reverb *)p;
 
@@ -412,15 +414,24 @@ run_Reverb(LV2_Handle Instance,
     unsigned long sample_index;
     int i;
 
-    float decay = (LIMIT(*(ptr->decay),0.0f,10000.0f)+ptr->smoothdecay)*0.5;
-    ptr->smoothdecay = decay;
-    float drylevel = db2lin(LIMIT(*(ptr->drylevel),-70.0f,10.0f));
-    float wetlevel = db2lin(LIMIT(*(ptr->wetlevel),-70.0f,10.0f));
+    float calcdecay = (*(ptr->decay)+ptr->smoothdecay)*0.5; //first calculate the smoothed value, then limit it.
+    ptr->smoothdecay = calcdecay;
+    float decay = LIMIT(calcdecay,0.0f,10000.0f);
+
+    float calcdry = (*(ptr->drylevel)+ptr->smoothdry)*0.5;
+    ptr->smoothdry = calcdry;
+    float drylevel = db2lin(LIMIT(calcdry,-70.0f,10.0f));
+
+    float calcwet = (*(ptr->wetlevel)+ptr->smoothwet)*0.5;
+    ptr->smoothwet = calcwet;
+    float wetlevel = db2lin(LIMIT(calcwet,-70.0f,10.0f));
+
+
     float combs_en = LIMIT(*(ptr->combs_en),-2.0f,2.0f);
     float allps_en = LIMIT(*(ptr->allps_en),-2.0f,2.0f);
     float bandpass_en = LIMIT(*(ptr->bandpass_en),-2.0f,2.0f);
     float stereo_enh = LIMIT(*(ptr->stereo_enh),-2.0f,2.0f);
-        float mode = LIMIT(*(ptr->mode),0,NUM_MODES-1);
+    float mode = LIMIT(*(ptr->mode),0,NUM_MODES-1);
 
     float * input_L = ptr->input_L;
     float * output_L = ptr->output_L;

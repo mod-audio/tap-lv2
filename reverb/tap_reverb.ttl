@@ -48,9 +48,9 @@ lv2:port
     lv2:index 0;
     lv2:symbol "decay";
     lv2:name "Decay";
-    lv2:default 2800;
-    lv2:minimum 0;
-    lv2:maximum 10000;
+    lv2:default 2800.0;
+    lv2:minimum 0.0;
+    lv2:maximum 10000.0;
     units:unit units:ms ;
 ],
 [
@@ -58,9 +58,9 @@ lv2:port
     lv2:index 1;
     lv2:symbol "drylevel";
     lv2:name "Dry Level";
-    lv2:default -4;
-    lv2:minimum -70;
-    lv2:maximum 10;
+    lv2:default -4.0;
+    lv2:minimum -70.0;
+    lv2:maximum 10.0;
     units:unit units:db ;
 
 ],
@@ -69,9 +69,9 @@ lv2:port
     lv2:index 2;
     lv2:symbol "wetlevel";
     lv2:name "Wet Level";
-    lv2:default -12;
-    lv2:minimum -70;
-    lv2:maximum 10;
+    lv2:default -12.0;
+    lv2:minimum -70.0;
+    lv2:maximum 10.0;
     units:unit units:db ;
 
 ],
@@ -83,15 +83,16 @@ lv2:port
     lv2:default 1;
     lv2:minimum 0;
     lv2:maximum 1;
+    lv2:portProperty lv2:integer;
     lv2:portProperty lv2:toggled;
     lv2:scalePoint
     [
         rdfs:label "Off" ;
-        rdf:value 0.0
+        rdf:value 0
     ],
     [
         rdfs:label "On" ;
-        rdf:value 1.0
+        rdf:value 1
     ]
 ],
 [
@@ -102,15 +103,16 @@ lv2:port
     lv2:default 1;
     lv2:minimum 0;
     lv2:maximum 1;
+    lv2:portProperty lv2:integer;
     lv2:portProperty lv2:toggled;
     lv2:scalePoint
     [
         rdfs:label "Off" ;
-        rdf:value 0.0
+        rdf:value 0
     ],
     [
         rdfs:label "On" ;
-        rdf:value 1.0
+        rdf:value 1
     ]
 ],
 [
@@ -121,15 +123,16 @@ lv2:port
     lv2:default 1;
     lv2:minimum 0;
     lv2:maximum 1;
+    lv2:portProperty lv2:integer;
     lv2:portProperty lv2:toggled;
     lv2:scalePoint
     [
         rdfs:label "Off" ;
-        rdf:value 0.0
+        rdf:value 0
     ],
     [
         rdfs:label "On" ;
-        rdf:value 1.0
+        rdf:value 1
     ]
 ],
 [
@@ -140,15 +143,16 @@ lv2:port
     lv2:default 1;
     lv2:minimum 0;
     lv2:maximum 1;
+    lv2:portProperty lv2:integer;
     lv2:portProperty lv2:toggled;
     lv2:scalePoint
     [
         rdfs:label "Off" ;
-        rdf:value 0.0
+        rdf:value 0
     ],
     [
         rdfs:label "On" ;
-        rdf:value 1.0
+        rdf:value 1
     ]
 ],
 [
@@ -159,179 +163,180 @@ lv2:port
     lv2:default 0;
     lv2:minimum 0;
     lv2:maximum 42;
+    lv2:portProperty lv2:integer;
     lv2:portProperty lv2:enumeration;
     lv2:scalePoint
     [
         rdfs:label "AfterBurn" ;
-        rdf:value 0.0
+        rdf:value 0
     ],
     [
         rdfs:label "AfterBurn (Long)" ;
-        rdf:value 1.0
+        rdf:value 1
     ],
     [
         rdfs:label "Ambience" ;
-        rdf:value 2.0
+        rdf:value 2
     ],
     [
         rdfs:label "Ambience (Thick)" ;
-        rdf:value 3.0
+        rdf:value 3
     ],
     [
         rdfs:label "Ambience (Thick) - HD" ;
-        rdf:value 4.0
+        rdf:value 4
     ],
     [
         rdfs:label "Cathedral" ;
-        rdf:value 5.0
+        rdf:value 5
     ],
     [
         rdfs:label "Cathedral - HD" ;
-        rdf:value 6.0
+        rdf:value 6
     ],
     [
         rdfs:label "Drum Chamber" ;
-        rdf:value 7.0
+        rdf:value 7
     ],
     [
         rdfs:label "Garage" ;
-        rdf:value 8.0
+        rdf:value 8
     ],
     [
         rdfs:label "Garage (Bright)" ;
-        rdf:value 9.0
+        rdf:value 9
     ],
     [
         rdfs:label "Gymnasium" ;
-        rdf:value 10.0
+        rdf:value 10
     ],
     [
         rdfs:label "Gymnasium (Bright)" ;
-        rdf:value 11.0
+        rdf:value 11
     ],
     [
         rdfs:label "Gymnasium (Bright) - HD" ;
-        rdf:value 12.0
+        rdf:value 12
     ],
     [
         rdfs:label "Hall (Small)" ;
-        rdf:value 13.0
+        rdf:value 13
     ],
     [
         rdfs:label "Hall (Medium)" ;
-        rdf:value 14.0
+        rdf:value 14
     ],
     [
         rdfs:label "Hall (Large)" ;
-        rdf:value 15.0
+        rdf:value 15
     ],
     [
         rdfs:label "Hall (Large) - HD" ;
-        rdf:value 16.0
+        rdf:value 16
     ],
     [
         rdfs:label "Plate (Small)" ;
-        rdf:value 17.0
+        rdf:value 17
     ],
     [
         rdfs:label "Plate (Medium)" ;
-        rdf:value 18.0
+        rdf:value 18
     ],
     [
         rdfs:label "Plate (Large)" ;
-        rdf:value 19.0
+        rdf:value 19
     ],
     [
         rdfs:label "Plate (Large) - HD" ;
-        rdf:value 20.0
+        rdf:value 20
     ],
     [
         rdfs:label "Pulse Chamber" ;
-        rdf:value 21.0
+        rdf:value 21
     ],
     [
         rdfs:label "Pulse Chamber (Reverse)" ;
-        rdf:value 22.0
+        rdf:value 22
     ],
     [
         rdfs:label "Resonator (96 ms)" ;
-        rdf:value 23.0
+        rdf:value 23
     ],
     [
         rdfs:label "Resonator (152 ms)" ;
-        rdf:value 24.0
+        rdf:value 24
     ],
     [
         rdfs:label "Resonator (208 ms)" ;
-        rdf:value 25.0
+        rdf:value 25
     ],
     [
         rdfs:label "Room (Small)" ;
-        rdf:value 26.0
+        rdf:value 26
     ],
     [
         rdfs:label "Room (Medium)" ;
-        rdf:value 27.0
+        rdf:value 27
     ],
     [
         rdfs:label "Room (Large)" ;
-        rdf:value 28.0
+        rdf:value 28
     ],
     [
         rdfs:label "Room (Large) - HD" ;
-        rdf:value 29.0
+        rdf:value 29
     ],
     [
         rdfs:label "Slap Chamber" ;
-        rdf:value 30.0
+        rdf:value 30
     ],
     [
         rdfs:label "Slap Chamber - HD" ;
-        rdf:value 31.0
+        rdf:value 31
     ],
     [
         rdfs:label "Slap Chamber (Bright)" ;
-        rdf:value 32.0
+        rdf:value 32
     ],
     [
         rdfs:label "Slap Chamber (Bright) - HD" ;
-        rdf:value 33.0
+        rdf:value 33
     ],
     [
         rdfs:label "Smooth Hall (Small)" ;
-        rdf:value 34.0
+        rdf:value 34
     ],
     [
         rdfs:label "Smooth Hall (Medium)" ;
-        rdf:value 35.0
+        rdf:value 35
     ],
     [
         rdfs:label "Smooth Hall (Large)" ;
-        rdf:value 36.0
+        rdf:value 36
     ],
     [
         rdfs:label "Smooth Hall (Large) - HD" ;
-        rdf:value 37.0
+        rdf:value 37
     ],
     [
         rdfs:label "Vocal Plate" ;
-        rdf:value 38.0
+        rdf:value 38
     ],
     [
         rdfs:label "Vocal Plate - HD" ;
-        rdf:value 39.0
+        rdf:value 39
     ],
     [
         rdfs:label "Warble Chamber" ;
-        rdf:value 40.0
+        rdf:value 40
     ],
     [
         rdfs:label "Warehouse" ;
-        rdf:value 41.0
+        rdf:value 41
     ],
     [
         rdfs:label "Warehouse - HD" ;
-        rdf:value 42.0
+        rdf:value 42
     ]
 
 ],

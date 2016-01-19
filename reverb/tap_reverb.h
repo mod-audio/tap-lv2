@@ -256,7 +256,9 @@ typedef struct {
     float * decay;
     float smoothdecay; //for smoothing the decay parameter
     float * drylevel;
+    float smoothdry;  //for smoothing drylevel
     float * wetlevel;
+    float smoothwet;  //for smoothing wetlevel
     float * combs_en; /* on/off */
     float * allps_en; /* on/off */
         float * bandpass_en; /* on/off */

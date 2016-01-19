@@ -45,9 +45,9 @@ lv2:port
     lv2:index 0;
     lv2:symbol "fragment";
     lv2:name "Fragment Length";
-    lv2:default 1000;
-    lv2:minimum 100;
-    lv2:maximum 1600;
+    lv2:default 1000.0;
+    lv2:minimum 100.0;
+    lv2:maximum 1600.0;
     lv2:designation  time:beatsPerMinute;
     units:unit units:ms ;
 ],
@@ -56,9 +56,9 @@ lv2:port
     lv2:index 1;
     lv2:symbol "dry";
     lv2:name "Dry Level";
-    lv2:default 0;
-    lv2:minimum -90;
-    lv2:maximum 20;
+    lv2:default 0.0;
+    lv2:minimum -90.0;
+    lv2:maximum 20.0;
     units:unit units:db ;
 ],
 [
@@ -66,9 +66,9 @@ lv2:port
     lv2:index 2;
     lv2:symbol "wet";
     lv2:name "Wet Level";
-    lv2:default 0;
-    lv2:minimum -90;
-    lv2:maximum 20;
+    lv2:default 0.0;
+    lv2:minimum -90.0;
+    lv2:maximum 20.0;
     units:unit units:db ;
 ],
 [

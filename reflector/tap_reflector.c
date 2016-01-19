@@ -62,10 +62,15 @@ int flagcos = 0;
 
 typedef struct {
     float * fragment;
+    //float oldfragment; //for parameter smoothing
     float * drylevel;
+    float olddry;     //for parameter smoothing
     float * wetlevel;
+    float oldwet;     //for parameter smoothing
     float * input;
     float * output;
+
+
 
     float * ring0;
     unsigned long buflen0;
@@ -109,6 +114,9 @@ instantiate_Reflector(const LV2_Descriptor * Descriptor, double SampleRate, cons
 
     if ((ptr = malloc(sizeof(Reflector))) != NULL) {
         ((Reflector *)ptr)->sample_rate = SampleRate;
+        ((Reflector *)ptr)->olddry = 0.0f;  //initinating values for smoothing
+        ((Reflector *)ptr)->oldwet = 0.0f;
+        //((Reflector *)ptr)->oldfragment = 0.0f;
 
         if ((((Reflector *)ptr)->ring0 =
              calloc(2 * MAX_FRAGMENT_LEN * MAX_SAMPLE_RATE, sizeof(float))) == NULL)
@@ -215,9 +223,18 @@ run_Reflector(LV2_Handle Instance,
     Reflector * ptr = (Reflector *)Instance;
     float * input = ptr->input;
     float * output = ptr->output;
-    float drylevel = db2lin(LIMIT(*(ptr->drylevel),-90.0f,20.0f));
-    float wetlevel = 0.333333f * db2lin(LIMIT(*(ptr->wetlevel),-90.0f,20.0f));
+
+    float calcdry = (*(ptr->drylevel)+ptr->olddry)*0.5;  //first smooth, then limit
+    ptr->olddry = calcdry;
+    float drylevel = db2lin(LIMIT(calcdry,-90.0f,20.0f));
+
+    float calcwet = (*(ptr->wetlevel)+ptr->oldwet)*0.5; //first smooth, then limit
+    ptr->oldwet = calcwet;
+    float wetlevel = 0.333333f * db2lin(LIMIT(calcwet,-90.0f,20.0f));
+
+
     float fragment = LIMIT(*(ptr->fragment),(float)MIN_FRAGMENT_LEN,(float)MAX_FRAGMENT_LEN);
+    //ptr->oldfragment = fragment;
 
     unsigned long sample_index;
     unsigned long sample_count = SampleCount;
