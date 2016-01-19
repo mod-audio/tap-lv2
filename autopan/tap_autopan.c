@@ -22,7 +22,7 @@
 #include <string.h>
 #include <math.h>
 
-#include "lv2.h"
+#include <lv2.h>
 #include "tap_utils.h"
 
 /* The Unique ID of the plugin: */
