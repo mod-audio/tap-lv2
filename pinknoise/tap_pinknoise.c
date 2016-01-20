@@ -51,6 +51,7 @@ typedef struct {
     float * hurst;
     float * signal;
     float * noise;
+    float smoothnoise;
     float * input;
     float * output;
 
@@ -101,6 +102,7 @@ instantiate_Pinknoise(const LV2_Descriptor * Descriptor, double SampleRate, cons
     if ((ptr = malloc(sizeof(Pinknoise))) != NULL) {
             ((Pinknoise *)ptr)->sample_rate = SampleRate;
             ((Pinknoise *)ptr)->run_adding_gain = 1.0;
+            ((Pinknoise *)ptr)->smoothnoise = -90.0f;
 
                 if ((((Pinknoise *)ptr)->ring =
                      calloc(NOISE_LEN, sizeof(float))) == NULL)
@@ -157,7 +159,10 @@ run_Pinknoise(LV2_Handle Instance,
     float * output = ptr->output;
     float hurst = LIMIT(*(ptr->hurst), 0.0f, 1.0f);
     float signal = db2lin(LIMIT(*(ptr->signal), -90.0f, 20.0f));
-    float noise = db2lin(LIMIT(*(ptr->noise), -90.0f, 20.0f));
+
+    float calcnoise = (*(ptr->noise)+ptr->smoothnoise)*0.5;
+    ptr->smoothnoise = calcnoise;
+    float noise = db2lin(LIMIT(calcnoise, -90.0f, 20.0f));
     unsigned long sample_index;
 
     for (sample_index = 0; sample_index < SampleCount; sample_index++) {
