@@ -24,7 +24,7 @@
 #include <string.h>
 #include <math.h>
 
-#include <lv2.h>
+#include "lv2.h"
 #include "tap_utils.h"
 
 /* The Unique ID of the plugin: */
@@ -67,8 +67,11 @@ typedef struct {
 	float * feedback_L;
 	float * feedback_R;
 	float * strength_L;
+	float smoothstrength_L; //for parametersmoothing
 	float * strength_R;
+	float smoothstrength_R; //for parametersmoothing
 	float * drylevel;
+	float smoothdry; //for parametersmoothing
 	float * mode;
 	float * haas;
 	float * rev_outch;
@@ -99,6 +102,9 @@ instantiate_Echo(const LV2_Descriptor * Descriptor, double SampleRate, const cha
 
 	if ((ptr = malloc(sizeof(Echo))) != NULL) {
 		((Echo *)ptr)->sample_rate = SampleRate;
+		((Echo *)ptr)->smoothdry = -4.0f;
+		((Echo *)ptr)->smoothstrength_L = -4.0f;
+		((Echo *)ptr)->smoothstrength_R = -4.0f;
 
 		/* allocate memory for ringbuffers and related dynamic vars */
 		if ((((Echo *)ptr)->ringbuffer_L =
@@ -256,9 +262,20 @@ run_Echo(LV2_Handle Instance,
 	delaytime_R = LIMIT(*(ptr->delaytime_R),0.0f,2000.0f);
 	feedback_L = LIMIT(*(ptr->feedback_L) / 100.0, 0.0f, 100.0f);
 	feedback_R = LIMIT(*(ptr->feedback_R) / 100.0, 0.0f, 100.0f);
-        strength_L = db2lin(LIMIT(*(ptr->strength_L),-70.0f,10.0f));
-	strength_R = db2lin(LIMIT(*(ptr->strength_R),-70.0f,10.0f));
-	drylevel = db2lin(LIMIT(*(ptr->drylevel),-70.0f,10.0f));
+
+	float calcstrength_L = (*(ptr->strength_L)+ptr->smoothstrength_L)*0.5; //smoothing
+	ptr->smoothstrength_L=calcstrength_L; //saving
+	strength_L = db2lin(LIMIT(calcstrength_L,-70.0f,10.0f)); //convert to db and influence the actual audiobuffer
+
+	float calcstrength_R = (*(ptr->strength_R)+ptr->smoothstrength_R)*0.5; //smoothing
+	ptr->smoothstrength_R = calcstrength_R; //saving
+	strength_R = db2lin(LIMIT(calcstrength_R,-70.0f,10.0f)); //convert to db and influence the actual audiobuffer
+
+	float calcdrylevel = (*(ptr->drylevel)+ptr->smoothdry)*0.5; //smoothing
+	ptr->smoothdry = calcdrylevel; //saving
+	drylevel = db2lin(LIMIT(calcdrylevel,-70.0f,10.0f));//convert to db and influence the actual audiobuffer
+
+
 	mode = LIMIT(*(ptr->mode),-2.0f,2.0f);
 	haas = LIMIT(*(ptr->haas),-2.0f,2.0f);
 	rev_outch = LIMIT(*(ptr->rev_outch),-2.0f,2.0f);
