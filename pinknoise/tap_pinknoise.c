@@ -160,9 +160,8 @@ run_Pinknoise(LV2_Handle Instance,
     float hurst = LIMIT(*(ptr->hurst), 0.0f, 1.0f);
     float signal = db2lin(LIMIT(*(ptr->signal), -90.0f, 20.0f));
 
-    float calcnoise = (*(ptr->noise)+ptr->smoothnoise)*0.5;
-    ptr->smoothnoise = calcnoise;
-    float noise = db2lin(LIMIT(calcnoise, -90.0f, 20.0f));
+    ptr->smoothnoise = (*(ptr->noise)+ptr->smoothnoise)*0.5;
+    float noise = db2lin(LIMIT(ptr->smoothnoise, -90.0f, 20.0f));
     unsigned long sample_index;
 
     for (sample_index = 0; sample_index < SampleCount; sample_index++) {
