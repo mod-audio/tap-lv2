@@ -6,9 +6,9 @@ CC ?= gcc
 CFLAGS += -O3 -funroll-loops -ffast-math -fomit-frame-pointer -fstrength-reduce -Wall -Werror -fPIC -DPIC -I../utils
 LDFLAGS += -shared -Wl,-O1 -Wl,--as-needed -Wl,--no-undefined -Wl,--strip-all -lm -lrt
 
-ifneq ($(NOOPT),true)
-CFLAGS += -mtune=generic -msse -msse2 -mfpmath=sse
-endif
+#ifneq ($(NOOPT),true)
+#CFLAGS += -mtune=generic -msse -msse2 -mfpmath=sse
+#endif
 
 # remove command
 RM = rm -f

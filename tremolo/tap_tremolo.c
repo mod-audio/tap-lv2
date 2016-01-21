@@ -24,7 +24,7 @@
 #include <string.h>
 #include <math.h>
 
-#include <lv2.h>
+#include "lv2.h"
 #include "tap_utils.h"
 
 /* The Unique ID of the plugin: */
@@ -57,6 +57,7 @@ typedef struct {
 	float * Control_Freq;
 	float * Control_Depth;
 	float * Control_Gain;
+	float oldgain;
 	float * InputBuffer_1;
 	float * OutputBuffer_1;
 	double SampleRate;
@@ -74,7 +75,7 @@ instantiate_Tremolo(const LV2_Descriptor * Descriptor, double SampleRate, const 
 
 	if ((ptr = malloc(sizeof(Tremolo))) != NULL) {
 	        ((Tremolo *)ptr)->SampleRate = SampleRate;
-
+					((Tremolo *)ptr)->oldgain = 0.0f;
 	        if(flag == 0)
 	        {
                 for (i = 0; i < 1024; i++)
@@ -152,7 +153,10 @@ run_Tremolo(LV2_Handle Instance,
 	output = ptr->OutputBuffer_1;
 	freq = LIMIT(*(ptr->Control_Freq),0.0f,20.0f);
 	depth = LIMIT(*(ptr->Control_Depth),0.0f,100.0f);
-	gain = db2lin(LIMIT(*(ptr->Control_Gain),-70.0f,20.0f));
+
+	float calcgain = (*(ptr->Control_Gain)+ptr->oldgain)*0.5;
+	ptr->oldgain=calcgain;
+	gain = db2lin(LIMIT(calcgain,-70.0f,20.0f));
 
   	for (sample_index = 0; sample_index < SampleCount; sample_index++) {
 		phase = 1024.0f * freq * sample_index / ptr->SampleRate + ptr->Phase;
