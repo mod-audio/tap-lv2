@@ -263,18 +263,14 @@ run_Echo(LV2_Handle Instance,
 	feedback_L = LIMIT(*(ptr->feedback_L) / 100.0, 0.0f, 100.0f);
 	feedback_R = LIMIT(*(ptr->feedback_R) / 100.0, 0.0f, 100.0f);
 
-	float calcstrength_L = (*(ptr->strength_L)+ptr->smoothstrength_L)*0.5; //smoothing
-	ptr->smoothstrength_L=calcstrength_L; //saving
-	strength_L = db2lin(LIMIT(calcstrength_L,-70.0f,10.0f)); //convert to db and influence the actual audiobuffer
+	ptr->smoothstrength_L = (*(ptr->strength_L)+ptr->smoothstrength_L)*0.5; //smoothing
+	strength_L = db2lin(LIMIT(ptr->smoothstrength_L,-70.0f,10.0f)); //convert to db and influence the actual audiobuffer
 
-	float calcstrength_R = (*(ptr->strength_R)+ptr->smoothstrength_R)*0.5; //smoothing
-	ptr->smoothstrength_R = calcstrength_R; //saving
-	strength_R = db2lin(LIMIT(calcstrength_R,-70.0f,10.0f)); //convert to db and influence the actual audiobuffer
+	ptr->smoothstrength_R = (*(ptr->strength_R)+ptr->smoothstrength_R)*0.5; //smoothing
+	strength_R = db2lin(LIMIT(ptr->smoothstrength_R,-70.0f,10.0f)); //convert to db and influence the actual audiobuffer
 
-	float calcdrylevel = (*(ptr->drylevel)+ptr->smoothdry)*0.5; //smoothing
-	ptr->smoothdry = calcdrylevel; //saving
-	drylevel = db2lin(LIMIT(calcdrylevel,-70.0f,10.0f));//convert to db and influence the actual audiobuffer
-
+	ptr->smoothdry = (*(ptr->drylevel)+ptr->smoothdry)*0.5; //smoothing
+	drylevel = db2lin(LIMIT(ptr->smoothdry,-70.0f,10.0f));//convert to db and influence the actual audiobuffer
 
 	mode = LIMIT(*(ptr->mode),-2.0f,2.0f);
 	haas = LIMIT(*(ptr->haas),-2.0f,2.0f);
