@@ -154,9 +154,8 @@ run_Tremolo(LV2_Handle Instance,
 	freq = LIMIT(*(ptr->Control_Freq),0.0f,20.0f);
 	depth = LIMIT(*(ptr->Control_Depth),0.0f,100.0f);
 
-	float calcgain = (*(ptr->Control_Gain)+ptr->oldgain)*0.5;
-	ptr->oldgain=calcgain;
-	gain = db2lin(LIMIT(calcgain,-70.0f,20.0f));
+	ptr->oldgain = (*(ptr->Control_Gain)+ptr->oldgain)*0.5;
+	gain = db2lin(LIMIT(ptr->oldgain,-70.0f,20.0f));
 
   	for (sample_index = 0; sample_index < SampleCount; sample_index++) {
 		phase = 1024.0f * freq * sample_index / ptr->SampleRate + ptr->Phase;
