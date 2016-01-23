@@ -25,7 +25,7 @@
 #include <math.h>
 #include <time.h>
 
-#include <lv2.h>
+#include "lv2.h"
 #include "tap_utils.h"
 
 
@@ -74,11 +74,16 @@ int flag = 0;
 typedef struct {
 	float * freq;
 	float * phase;
+	float smoothphase;
 	float * depth;
+	float smoothdepth;
 	float * delay;
+	float smoothdelay;
 	float * contour;
 	float * drylevel;
+	float smoothdry;
 	float * wetlevel;
+	float smoothwet;
 	float * input_L;
 	float * input_R;
 	float * output_L;
@@ -111,6 +116,11 @@ instantiate_ChorusFlanger(const LV2_Descriptor * Descriptor, double sample_rate,
 
 	if ((ptr = malloc(sizeof(ChorusFlanger))) != NULL) {
 		((ChorusFlanger *)ptr)->sample_rate = sample_rate;
+		((ChorusFlanger *)ptr)->smoothdry = -3.0;
+		((ChorusFlanger *)ptr)->smoothwet = -3.0;
+		((ChorusFlanger *)ptr)->smoothphase = 90.0;
+		((ChorusFlanger *)ptr)->smoothdepth = 75.0;
+		((ChorusFlanger *)ptr)->smoothdelay = 25.0;
 
 		const unsigned long fullbuflen = (DEPTH_BUFLEN + DELAY_BUFLEN) * sample_rate / 192000;
 
@@ -213,13 +223,28 @@ run_ChorusFlanger(LV2_Handle Instance,
 	ChorusFlanger * ptr = (ChorusFlanger *)Instance;
 
 	float freq = LIMIT(*(ptr->freq), 0.0f, MAX_FREQ);
-	float phase = LIMIT(*(ptr->phase), 0.0f, 180.0f) / 180.0f;
+
+	float calcphase = (*(ptr->phase)+ptr->smoothphase)*0.5;
+	ptr->smoothphase=calcphase;
+	float phase = LIMIT(calcphase, 0.0f, 180.0f) / 180.0f;
+
+	float calcdepth = (*(ptr->depth)+ptr->smoothdepth)*0.5;
+	ptr->smoothdepth=calcdepth;
 	float depth = 100.0f * ptr->sample_rate / 44100.0f
-		* LIMIT(*(ptr->depth),0.0f,100.0f) / 100.0f;
-	float delay = LIMIT(*(ptr->delay),0.0f,100.0f);
+		* LIMIT(calcdepth,0.0f,100.0f) / 100.0f;
+
+	float calcdelay = (*(ptr->delay)+ptr->smoothdelay)*0.5;
+	ptr->smoothdelay=calcdelay;
+	float delay = LIMIT(calcdelay,0.0f,100.0f);
 	float contour = LIMIT(*(ptr->contour), 20.0f, 20000.0f);
-	float drylevel = db2lin(LIMIT(*(ptr->drylevel),-90.0f,20.0f));
-	float wetlevel = db2lin(LIMIT(*(ptr->wetlevel),-90.0f,20.0f));
+
+	float calcdry = (*(ptr->drylevel)+ptr->smoothdry)*0.5;
+	ptr->smoothdry=calcdry;
+	float drylevel = db2lin(LIMIT(calcdry,-90.0f,20.0f));
+
+	float calcwet = (*(ptr->wetlevel)+ptr->smoothwet)*0.5;
+	ptr->smoothwet=calcwet;
+	float wetlevel = db2lin(LIMIT(calcwet,-90.0f,20.0f));
 	float * input_L = ptr->input_L;
 	float * input_R = ptr->input_R;
 	float * output_L = ptr->output_L;

@@ -25,7 +25,7 @@
 #include <math.h>
 #include <time.h>
 
-#include <lv2.h>
+#include "lv2.h"
 #include "tap_utils.h"
 
 
@@ -70,9 +70,11 @@ typedef struct {
 	float * time;
 	float * pitch;
 	float * drylevel;
+	float smoothdrylevel;
 	float * dryposl;
 	float * dryposr;
 	float * wetlevel;
+	float smoothwetlevel;
 	float * wetposl;
 	float * wetposr;
 	float * input_L;
@@ -152,6 +154,8 @@ instantiate_Doubler(const LV2_Descriptor * Descriptor, double sample_rate, const
 
 	if ((ptr = malloc(sizeof(Doubler))) != NULL) {
 		((Doubler *)ptr)->sample_rate = sample_rate;
+		((Doubler *)ptr)->smoothdrylevel = 0.0;
+		((Doubler *)ptr)->smoothwetlevel = 0.0;
 
 		if ((((Doubler *)ptr)->ring_L =
 		     calloc(BUFLEN * sample_rate / 192000, sizeof(float))) == NULL)
@@ -279,8 +283,15 @@ run_Doubler(LV2_Handle Instance,
 				  ptr->sample_rate / 6000.0f / M_PI,
 				  0, ptr->buflen_L / 2);
 	float time = LIMIT(*(ptr->time), 0.0f, 1.0f) + 0.5f;
-	float drylevel = db2lin(LIMIT(*(ptr->drylevel),-90.0f,20.0f));
-	float wetlevel = db2lin(LIMIT(*(ptr->wetlevel),-90.0f,20.0f));
+
+	float calcdry = (*(ptr->drylevel) +ptr->smoothdrylevel)*0.5;
+	ptr->smoothdrylevel = calcdry;
+	float drylevel = db2lin(LIMIT(calcdry,-90.0f,20.0f));
+
+	float calcwet = (*(ptr->wetlevel) +ptr->smoothwetlevel)*0.5;
+	ptr->smoothwetlevel = calcwet;
+	float wetlevel = db2lin(LIMIT(calcwet,-90.0f,20.0f));
+
 	float dryposl = 1.0f - LIMIT(*(ptr->dryposl), 0.0f, 1.0f);
 	float dryposr = LIMIT(*(ptr->dryposr), 0.0f, 1.0f);
 	float wetposl = 1.0f - LIMIT(*(ptr->wetposl), 0.0f, 1.0f);
