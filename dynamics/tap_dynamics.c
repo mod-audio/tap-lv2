@@ -139,6 +139,7 @@ typedef struct {
     float * release;
     float * offsgain;
     float * mugain;
+    float smoothmugain;
     float * rmsenv_L;
     float * rmsenv_R;
     float * modgain_L;
@@ -169,6 +170,7 @@ typedef struct {
     /* variables from dynamics mono */
 
     float * mugain_m;
+    float smoothmugain_m;
     float * rmsenv_m;
     float * modgain_m;
     float * mode_m;
@@ -312,7 +314,8 @@ instantiate_MonoDynamics(const LV2_Descriptor * Descriptor, double sample_rate, 
         return NULL;
 
     ((Dynamics *)ptr)->sample_rate = sample_rate;
-
+    ((Dynamics *)ptr)->smoothmugain_m=0.0f;
+    ((Dynamics *)ptr)->smoothmugain=0.0f;
         if ((rms_m = rms_env_Mononew()) == NULL)
         return NULL;
 
@@ -514,7 +517,10 @@ run_MonoDynamics(LV2_Handle Instance,
         const float attack = LIMIT(*(ptr->attack), 4.0f, 500.0f);
         const float release = LIMIT(*(ptr->release), 4.0f, 1000.0f);
         const float offsgain = LIMIT(*(ptr->offsgain), -20.0f, 20.0f);
-        const float mugain_m = db2lin(LIMIT(*(ptr->mugain_m), -20.0f, 20.0f));
+
+        float calcmugain_m = (*(ptr->mugain_m)+ptr->smoothmugain_m)*0.5;
+        ptr->smoothmugain_m=calcmugain_m;
+        const float mugain_m = db2lin(LIMIT(calcmugain_m, -20.0f, 20.0f));
     const int mode_m = LIMIT(*(ptr->mode_m), 0, NUM_MODES-1);
     unsigned long sample_index;
 
@@ -611,7 +617,9 @@ run_StereoDynamics(LV2_Handle Instance,
         const float attack = LIMIT(*(ptr->attack), 4.0f, 500.0f);
         const float release = LIMIT(*(ptr->release), 4.0f, 1000.0f);
         const float offsgain = LIMIT(*(ptr->offsgain), -20.0f, 20.0f);
-        const float mugain = db2lin(LIMIT(*(ptr->mugain), -20.0f, 20.0f));
+        float calcmugain = (*(ptr->mugain)+ptr->smoothmugain)*0.5;
+        ptr->smoothmugain=calcmugain;
+        const float mugain = db2lin(LIMIT(calcmugain, -20.0f, 20.0f));
     const int stereo = LIMIT(*(ptr->stereo), 0, 2);
     const int mode = LIMIT(*(ptr->mode), 0, NUM_MODES-1);
     unsigned long sample_index;
