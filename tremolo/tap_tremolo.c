@@ -78,8 +78,8 @@ instantiate_Tremolo(const LV2_Descriptor * Descriptor, double SampleRate, const 
 					((Tremolo *)ptr)->oldgain = 0.0f;
 	        if(flag == 0)
 	        {
-                for (i = 0; i < 1024; i++)
-                    cos_table[i] = cosf(i * M_PI / 512.0f);
+                    for (i = 0; i < 1024; i++)
+                        cos_table[i] = cosf(i * M_PI / 512.0f);
                     flag++;
 	        }
 		return ptr;

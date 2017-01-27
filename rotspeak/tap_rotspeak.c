@@ -392,10 +392,10 @@ run_RotSpkr(LV2_Handle Instance,
                            cos_table[(unsigned long) phase_b_R]);
     }
 
-        ptr->phase_h += 1024.0f * freq_h * sample_index / ptr->sample_rate;
+    ptr->phase_h += 1024.0f * freq_h * sample_index / ptr->sample_rate;
     while (ptr->phase_h >= 1024.0f)
         ptr->phase_h -= 1024.0f;
-        ptr->phase_b += 1024.0f * freq_b * sample_index / ptr->sample_rate;
+    ptr->phase_b += 1024.0f * freq_b * sample_index / ptr->sample_rate;
     while (ptr->phase_b >= 1024.0f)
         ptr->phase_b -= 1024.0f;
 
@@ -548,10 +548,10 @@ run_adding_RotSpkr(LV2_Handle Instance,
                            cos_table[(unsigned long) phase_b_R]);
     }
 
-        ptr->phase_h += 1024.0f * freq_h * sample_index / ptr->sample_rate;
+    ptr->phase_h += 1024.0f * freq_h * sample_index / ptr->sample_rate;
     while (ptr->phase_h >= 1024.0f)
         ptr->phase_h -= 1024.0f;
-        ptr->phase_b += 1024.0f * freq_b * sample_index / ptr->sample_rate;
+    ptr->phase_b += 1024.0f * freq_b * sample_index / ptr->sample_rate;
     while (ptr->phase_b >= 1024.0f)
         ptr->phase_b -= 1024.0f;
 
