@@ -7,7 +7,9 @@ CFLAGS += -O3 -funroll-loops -ffast-math -fomit-frame-pointer -fstrength-reduce 
 LDFLAGS += -shared -Wl,-O1 -Wl,--as-needed -Wl,--no-undefined -Wl,--strip-all -lm -lrt
 
 ifneq ($(NOOPT),true)
+ifneq ($(findstring $(shell uname -m),x86_64 amd64 i386 i686),)
 CFLAGS += -mtune=generic -msse -msse2 -mfpmath=sse
+endif
 endif
 
 # remove command
